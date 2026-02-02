@@ -2,55 +2,115 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>أخبار مسك الختام | الجمعية الخيرية</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أخبار مسك الختام | الجمعية الخيرية مسك الختام</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;font-family:'Cairo',Tahoma;}
+*{box-sizing:border-box;font-family:'Cairo',Tahoma;margin:0;padding:0;}
 body{margin:0;background:#f3f3f3;}
 .header{
-  background:#111;color:white;padding:20px 30px;
-  display:flex;align-items:center;justify-content:space-between;
-}
+  background:linear-gradient(135deg,#000,#1a1a1a);
+  color:white;padding:20px 30px;
+  display:flex;align-items:center;justify-content:space-between;box-shadow:0 6px 18px rgba(0,0,0,0.5);flex-wrap:wrap;}
+.header-left{display:flex;flex-direction:column;align-items:flex-end;}
 .header-title{font-size:50px;font-weight:900;}
-.header-logo{width:150px;height:auto;}
-.categories{display:flex;flex-wrap:wrap;gap:8px;padding:10px;margin-bottom:20px;background:#fff;}
-.category{flex:1;min-width:150px;text-align:center;padding:16px 10px;color:#000;font-size:26px;font-weight:800;text-decoration:none;background:#fff;border:2px solid #333;border-radius:14px;transition:0.3s;}
+.header-subtitle{font-size:28px;font-weight:700;margin-top:6px;color:#ffd700;}
+.header-logo{width:150px;height:auto;filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));}
+
+.container{max-width:1000px;margin:40px auto;padding:0 15px;}
+.categories{
+  background:#fff;display:flex;flex-wrap:wrap;gap:8px;padding:10px;margin-bottom:20px;}
+.category{
+  flex:1;min-width:150px;text-align:center;padding:16px 10px;color:#000;font-size:26px;font-weight:800;text-decoration:none;background:#fff;border:2px solid #333;border-radius:14px;transition:0.3s;}
 .category:hover{background:#f0f0f0;color:#ffd700;transform:translateY(-2px);}
-.news-card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.15);margin-bottom:40px;}
+.latest-news{
+  font-size:28px;font-weight:700;margin:20px 0 10px;color:#111;display:flex;align-items:center;gap:10px;border-bottom:2px solid #333;padding-bottom:5px;}
+
+.news-card{
+  background:white;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.15);margin-bottom:40px;}
+.news-card img{width:100%;height:500px;object-fit:cover;}
 .news-content{padding:30px;}
-.news-title{font-size:45px;font-weight:900;margin-bottom:15px;color:#000;}
 .news-date{font-size:21px;color:#777;margin-bottom:15px;}
+.news-title{font-size:45px;font-weight:900;margin-bottom:15px;color:#000;}
 .news-text{font-size:35px;line-height:2;color:#333;font-weight:700;}
+.back-button{margin-top:15px;display:inline-block;background:#111;color:#ffd700;padding:10px 20px;border-radius:10px;text-decoration:none;font-weight:700;}
 .footer{background:#111;color:#ccc;text-align:center;padding:20px;font-size:18px;}
 </style>
 </head>
 <body>
 
+<!-- رأس الصفحة -->
 <div class="header">
-  <div class="header-title">أخبار مسك الختام</div>
+  <div class="header-left">
+    <div class="header-title">أخبار مسك الختام</div>
+    <div class="header-subtitle">الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة</div>
+  </div>
   <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
 </div>
 
-<!-- شريط الأقسام -->
-<div class="categories">
-  <a href="ramadan-basket.html" class="category">قفة رمضان</a>
-  <a href="donate.html" class="category">تبرع</a>
-  <a href="activities.html" class="category">نشاطات الجمعية</a>
-  <a href="news-national.html" class="category">أخبار وطنية</a>
-  <a href="missing.html" class="category">مفقودات</a>
-  <a href="news-charity.html" class="category">أعمال خيرية</a>
-</div>
+<div class="container">
+  <!-- شريط الأقسام -->
+  <div class="categories">
+    <a href="ramadan-basket.html" class="category">قفة رمضان</a>
+    <a href="donate.html" class="category">تبرع</a>
+    <a href="activities.html" class="category">نشاطات الجمعية</a>
+    <a href="news-national.html" class="category">أخبار وطنية</a>
+    <a href="missing.html" class="category">مفقودات</a>
+    <a href="news-charity.html" class="category">أعمال خيرية</a>
+  </div>
 
-<!-- أخبار عامة -->
-<div class="news-card">
-  <div class="news-content">
-    <div class="news-date">الأحد 01 فيفري 2026</div>
-    <div class="news-title"><strong>🌙 تذكير بصيام أيام البيض</strong></div>
-    <div class="news-text">
-      تبدأ أيام البيض من يوم غد الأحد 01 فيفري 2026 إلى غاية يوم الثلاثاء 03 فيفري 2026.
-      يُستحب صيام هذه الأيام لما فيها من أجر عظيم وفضل كبير.
+  <!-- آخر الأخبار -->
+  <div class="latest-news">⏰ آخر الأخبار</div>
+
+  <!-- خبر تذكير أيام البيض -->
+  <div class="news-card">
+    <img src="background1.png" alt="خبر">
+    <div class="news-content">
+      <div class="news-date">الأحد 01 فيفري 2026</div>
+      <div class="news-title"><strong>🌙 تذكير بصيام أيام البيض</strong></div>
+      <div class="news-text">
+        تبدأ أيام البيض من يوم غد الأحد 01 فيفري 2026 إلى غاية يوم الثلاثاء 03 فيفري 2026.
+        يُستحب صيام هذه الأيام لما فيها من أجر عظيم وفضل كبير.
+        نسأل الله أن يتقبل من الجميع صالح الأعمال.
+      </div>
+      <a href="news1.html" class="back-button">العودة للأخبار</a>
     </div>
   </div>
+
+  <!-- خبر التبرع -->
+  <div class="news-card">
+    <div class="news-content">
+      <div class="news-date">الإثنين 02 فيفري 2026</div>
+      <div class="news-title"><strong>نداء</strong></div>
+      <div class="news-text">
+        🩸🩸 نبيل بوراس في حاجة ماسة للدّم زمرة +O للتبرع.<br>
+        أرجو التقرب من مستشفى الإخوة طوبال ميلة أو الاتصال على الرقم التالي:<br>
+        <strong>0773835533</strong>
+      </div>
+      <a href="news1.html" class="back-button">العودة للأخبار</a>
+    </div>
+  </div>
+
+  <!-- خبر نقل جثمان منديلي رشيد -->
+  <div class="news-card">
+    <div class="news-content">
+      <div class="news-date">الإثنين 02 فيفري 2026</div>
+      <div class="news-title"><strong>#نشاطات_الجمعية_خارج_الولاية</strong></div>
+      <div class="news-text">
+        تم اليوم نقل جثمان المغفور له بإذن الله: <br>
+        "<strong>#منديلي_رشيد</strong>" والذي وافته المنية صبيحة اليوم الإثنين 02 فيفري 2026 بمستشفى مجدوب السعيد ببلدية الطاهر، ولاية جيجل، حيث تم نقله من ذات المستشفى إلى مسقط رأسه ببلدية عين التين، مركز ولاية ميلة.<br><br>
+        ▪️ الانطلاق من بلديتنا: 12:30 زوالًا<br>
+        ▪️ الوصول إلى المستشفى: 14:15 زوالًا<br>
+        ▪️ إعادة الانطلاق نحو بلدية عين التين: 15:00 زوالًا والوصول على الساعة: 17:00 مساءً، ثم تم إلقاء النظرة الأخيرة على الجثمان والتوجه به إلى مقبرة عين التين المركزية.<br>
+        ▪️ العودة والوصول إلى بلديتنا: حوالي 17:45 مساءً.<br><br>
+        🤲 الدعاء: نسأل الله العلي القدير أن يتغمد الفقيد بواسع رحمته، وأن يجعل قبره روضة من رياض الجنة، وأن يثبته عند السؤال، ويجعل مثواه الجنة، ويلهم أهله وذويه جميل الصبر والسلوان.<br>
+        كما نسأل الله أن يجزي السائق المتطوع ومرافقه خير الجزاء، وأن يبارك في جهودهما، ويجعل ما قاما به في ميزان حسناتهما، ويحفظهما من كل سوء.<br>
+        نسأل الله أن يخلف على كل الداعمين والمحسنين وأعضاء الجمعية خيرًا، ويبارك في أموالهم وأعمالهم، ويجعل دعمهم هذا صدقة جارية لهم في الدنيا والآخرة.
+      </div>
+      <a href="news1.html" class="back-button">العودة للأخبار</a>
+    </div>
+  </div>
+
 </div>
 
 <div class="footer">
