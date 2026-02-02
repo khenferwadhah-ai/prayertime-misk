@@ -2,152 +2,230 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>أخبار الجمعية | الجمعية الخيرية مسك الختام بلدية القرارم قوقة</title>
+<title>الأخبار</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;font-family:'Cairo',Tahoma;}
-body{margin:0;background:#f3f3f3;}
+*{
+  box-sizing:border-box;
+  font-family:'Cairo',Tahoma;
+}
 
-/* ===== الرأس ===== */
+body{
+  margin:0;
+  background:#f2f2f2;
+}
+
+/* ===== رأس الصفحة ===== */
 .header{
-  background:linear-gradient(135deg,#000,#1a1a1a);
+  background:#111;
   color:white;
-  padding:25px 30px;
+  padding:20px 30px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  box-shadow:0 6px 20px rgba(0,0,0,0.5);
+  box-shadow:0 6px 18px rgba(0,0,0,0.5);
+  flex-wrap:wrap;
 }
-.header-logo{width:150px;height:auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.6));}
-.header-title{text-align:right;}
-.header-title h1{font-size:50px;margin:0;font-weight:900;}
-.header-title h2{font-size:50px;margin:10px 0 0;color:#ffd700;}
 
-/* ===== شريط الأخبار ===== */
-#newsTicker{
-  width:100%;
-  overflow:hidden;
-  white-space:nowrap;
-  background:rgba(255,215,0,0.1);
-  padding:10px 0;
+.header-left{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+}
+
+.header-title{
+  font-size:70px;
+  font-weight:900;
+}
+
+.header-subtitle{
+  font-size:28px;
   font-weight:700;
-  font-size:20px;
-  position:relative;
-  color:gold;
-  margin-top:10px;
-}
-#newsTicker span{
-  display:inline-block;
-  position:relative;
-  left:-100%;
-  animation:scrollLeft 20s linear infinite;
-}
-@keyframes scrollLeft{
-  0%{left:-100%;}
-  100%{left:100%;}
+  margin-top:6px;
+  color:#ffd700;
 }
 
-/* ===== الحاوية للبطاقات ===== */
+/* ===== ساعة وتاريخ ===== */
+.clock{
+  font-size:28px;
+  font-weight:700;
+  color:white;
+  margin-top:10px;
+  text-align:right;
+}
+
+/* ===== الحاوية ===== */
 .container{
   max-width:1000px;
-  margin:50px auto;
+  margin:40px auto;
   padding:0 15px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:30px;
 }
 
-/* ===== بطاقة القسم ===== */
-.section-card{
+/* ===== بطاقة خبر ===== */
+.news-card{
   background:white;
-  border-radius:18px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.18);
+  border-radius:16px;
   overflow:hidden;
-  transition:0.3s;
-  cursor:pointer;
-  text-decoration:none;
-  color:inherit;
+  box-shadow:0 6px 20px rgba(0,0,0,0.15);
+  margin-bottom:40px;
 }
-.section-card:hover{transform:translateY(-4px);}
-.section-image{width:100%;height:250px;object-fit:cover;}
-.section-content{padding:20px;text-align:center;}
-.section-title{font-size:36px;font-weight:900;margin-bottom:12px;color:#000;}
-.section-text{font-size:24px;color:#333;font-weight:700;}
+
+.news-card img{
+  width:100%;
+  height:500px;
+  object-fit:cover;
+}
+
+/* ===== شريط الخانات ===== */
+.categories{
+  background:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:10px;
+}
+
+.category{
+  flex:1;
+  min-width:150px;
+  text-align:center;
+  padding:16px 10px;
+  color:#000;
+  font-size:26px;
+  font-weight:800;
+  text-decoration:none;
+  background:#fff;
+  border:2px solid #333;
+  border-radius:14px;
+  transition:0.3s;
+}
+
+.category:hover{
+  background:#f0f0f0;
+  color:#ffd700;
+  transform:translateY(-2px);
+}
+
+/* ===== آخر الأخبار ===== */
+.latest-news{
+  font-size:28px;
+  font-weight:700;
+  margin:20px 0 10px;
+  color:#111;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border-bottom:2px solid #333; /* سطر تحت آخر الأخبار */
+  padding-bottom:5px;
+}
+
+/* محتوى الخبر */
+.news-content{
+  padding:30px;
+}
+
+.news-title{
+  font-size:45px;
+  font-weight:900;
+  margin-bottom:15px;
+  color:#000;
+}
+
+.news-date{
+  font-size:21px;
+  color:#777;
+  margin-bottom:25px;
+}
+
+.news-text{
+  font-size:35px;
+  line-height:2;
+  color:#333;
+  font-weight:700;
+}
 
 /* ===== ذيل الصفحة ===== */
-.footer{background:#111;color:#ccc;text-align:center;padding:25px;font-size:18px;margin-top:60px;}
+.footer{
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:20px;
+  font-size:18px;
+}
+
+.header-logo{
+  width:180px;
+  height:auto;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+}
 </style>
 </head>
 
 <body>
 
-<!-- ===== الرأس ===== -->
+<!-- ===== رأس الصفحة ===== -->
 <div class="header">
-  <div class="header-title">
-    <h1>الجمعية الخيرية مسك الختام بلدية القرارم قوقة</h1>
-    <h2>📰 أخبار الجمعية</h2>
+  <div class="header-left">
+    <div class="header-title">أخبار مسك الختام</div>
+    <div class="header-subtitle">الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة</div>
+    <div class="clock" id="clock">--:--:-- -- --/--/----</div>
   </div>
   <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
 </div>
 
-<!-- ===== شريط الأخبار ===== -->
-<div id="newsTicker">
-  <span id="newsText">قريبًا</span>
-</div>
-
 <div class="container">
-  <!-- أخبار وطنية -->
-  <a href="news-national.html" class="section-card">
-    <img src="national1.jpg" class="section-image" alt="أخبار وطنية">
-    <div class="section-content">
-      <div class="section-title">📰 أخبار وطنية</div>
-      <div class="section-text">قريبًا</div>
-    </div>
-  </a>
 
-  <!-- أعمال خيرية -->
-  <a href="news-charity.html" class="section-card">
-    <img src="charity1.jpg" class="section-image" alt="أعمال خيرية">
-    <div class="section-content">
-      <div class="section-title">🤲 أعمال خيرية</div>
-      <div class="section-text">قريبًا</div>
-    </div>
-  </a>
+  <!-- ===== خبر 1 ===== -->
+  <div class="news-card">
+    <img src="background1.png" alt="خبر">
 
-  <!-- قفة رمضان -->
-  <a href="news-ramadan.html" class="section-card">
-    <img src="ramadan1.jpg" class="section-image" alt="قفة رمضان">
-    <div class="section-content">
-      <div class="section-title">🧺 قفة رمضان</div>
-      <div class="section-text">قريبًا</div>
+    <!-- شريط الخانات -->
+    <div class="categories">
+      <a href="ramadan-basket.html" class="category">قفة رمضان</a>
+      <a href="donate.html" class="category">تبرع</a>
+      <a href="https://prayertime-misk.vercel.app/activities.html" class="category">نشاطات الجمعية</a>
+      <a href="local.html" class="category">أخبار وطنية</a>
+      <a href="missing.html" class="category">مفقودات</a>
+      <a href="charity.html" class="category">أعمال خيرية</a>
     </div>
-  </a>
+
+    <!-- ===== جملة آخر الأخبار ===== -->
+    <div class="latest-news">⏰ آخر الأخبار</div>
+
+    <div class="news-content">
+      <div class="news-title">🌙 تذكير بصيام أيام البيض</div>
+      <div class="news-date">الأحد 01 فيفري 2026</div>
+
+      <div class="news-text">
+        تبدأ أيام البيض من يوم غد الأحد 01 فيفري 2026 إلى غاية يوم الثلاثاء 03 فيفري 2026.
+        يُستحب صيام هذه الأيام لما فيها من أجر عظيم وفضل كبير.
+        نسأل الله أن يتقبل من الجميع صالح الأعمال.
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="footer">
-  © 2026 الجمعية الخيرية مسك الختام بلدية القرارم قوقة – أخبار الجمعية
+  © الجمعية الخيرية مسك الختام
 </div>
 
 <script>
-// ===== مثال شريط الأخبار الديناميكي =====
-const newsList = [
-  "قريبًا", // إذا لم توجد أخبار فعلية
-  // يمكنك إضافة أخبار فعلية هنا:
-  // "افتتاح حملة تبرع جديدة يوم 10 فبراير 2026",
-  // "توزيع مساعدات رمضان على العائلات المحتاجة"
-];
-
-let newsIndex = 0;
-const newsTextEl = document.getElementById("newsText");
-
-function updateNews(){
-  newsTextEl.innerText = newsList[newsIndex];
-  newsIndex = (newsIndex + 1) % newsList.length;
+// ===== تحديث الساعة والتاريخ =====
+function updateClock(){
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2,'0');
+  const minutes = String(now.getMinutes()).padStart(2,'0');
+  const seconds = String(now.getSeconds()).padStart(2,'0');
+  const day = String(now.getDate()).padStart(2,'0');
+  const month = String(now.getMonth()+1).padStart(2,'0');
+  const year = now.getFullYear();
+  document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} - ${day}/${month}/${year}`;
 }
-
-setInterval(updateNews, 25000); // كل 25 ثانية يظهر خبر جديد
+setInterval(updateClock, 1000);
+updateClock();
 </script>
 
 </body>
