@@ -81,7 +81,7 @@ body{
 
 /* ===== شريط الخانات ===== */
 .categories{
-  background:#000;
+  background:#fff;  /* خلفية بيضاء */
   display:flex;
   flex-wrap:wrap;
   gap:8px;                     
@@ -93,12 +93,12 @@ body{
   min-width:150px;
   text-align:center;
   padding:16px 10px;
-  color:white;
+  color:#000;        /* نص أسود */
   font-size:26px;
   font-weight:800;
   text-decoration:none;
 
-  background:#000;
+  background:#fff;   /* الخلفية بيضاء */
   border:2px solid #333;       
   border-radius:14px;          
 
@@ -106,9 +106,20 @@ body{
 }
 
 .category:hover{
-  background:#222;
+  background:#f0f0f0;
   color:#ffd700;
   transform:translateY(-2px);
+}
+
+/* ===== آخر الأخبار ===== */
+.latest-news{
+  font-size:28px;
+  font-weight:700;
+  margin:20px 0 10px;
+  color:#111;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 /* محتوى الخبر */
@@ -180,6 +191,9 @@ body{
       <a href="national.html" class="category">وطنية</a>
       <a href="international.html" class="category">دولية</a>
     </div>
+
+    <!-- ===== جملة آخر الأخبار ===== -->
+    <div class="latest-news">⏰ آخر الأخبار</div>
 
     <div class="news-content">
       <div class="news-title">🌙 تذكير بصيام أيام البيض</div>
