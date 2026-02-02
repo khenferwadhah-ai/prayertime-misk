@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -22,10 +21,24 @@ body{
 .header{
   background:#111;
   color:white;
-  padding:25px;
-  text-align:right;
+  padding:20px 30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 6px 18px rgba(0,0,0,0.5); /* ظل الرأس */
+}
+
+/* عنوان الرأس */
+.header-title{
   font-size:70px;
   font-weight:900;
+}
+
+/* اللوغو */
+.header-logo{
+  width:90px;
+  height:auto;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6)); /* ظل اللوغو */
 }
 
 /* ===== الحاوية العامة ===== */
@@ -89,15 +102,16 @@ body{
 
 <body>
 
+<!-- ===== رأس الصفحة ===== -->
 <div class="header">
-أخبار مسك الختام
+  <div class="header-title">أخبار مسك الختام</div>
+  <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
 </div>
 
 <div class="container">
 
   <!-- ===== خبر 1 ===== -->
   <div class="news-card">
-    <!-- يمكنك حذف img إذا لا تريد صورة -->
     <img src="background1.png" alt="خبر">
 
     <div class="news-content">
@@ -112,7 +126,7 @@ body{
     </div>
   </div>
 
-  <!-- ===== خبر 2 (مثال) ===== -->
+  <!-- ===== خبر 2 ===== -->
   <div class="news-card">
     <div class="news-content">
       <div class="news-title">📢 إعلان هام</div>
