@@ -72,7 +72,6 @@ body{
   margin-bottom:40px;
 }
 
-/* صورة الخبر */
 .news-card img{
   width:100%;
   height:500px;
@@ -118,6 +117,8 @@ body{
   display:flex;
   align-items:center;
   gap:10px;
+  border-bottom:2px solid #333; /* سطر تحت آخر الأخبار */
+  padding-bottom:5px;
 }
 
 /* محتوى الخبر */
@@ -176,19 +177,21 @@ body{
 
 <div class="container">
 
+  <!-- ===== خبر 1 ===== -->
   <div class="news-card">
     <img src="background1.png" alt="خبر">
 
-    <!-- ===== شريط الخانات ===== -->
+    <!-- شريط الخانات -->
     <div class="categories">
       <a href="ramadan-basket.html" class="category">قفة رمضان</a>
       <a href="donate.html" class="category">تبرع</a>
-      <a href="charity-works.html" class="category">أعمال خيرية</a>
-      <a href="activities.html" class="category">نشاطات</a>
-      <a href="news.html" class="category">أخبار</a>
-      <a href="lost.html" class="category">مفقودات</a>
+      <a href="https://prayertime-misk.vercel.app/activities.html" class="category">نشاطات الجمعية</a>
+      <a href="local.html" class="category">أخبار وطنية</a>
+      <a href="missing.html" class="category">مفقودات</a>
+      <a href="charity.html" class="category">أعمال خيرية</a>
     </div>
 
+    <!-- ===== جملة آخر الأخبار ===== -->
     <div class="latest-news">⏰ آخر الأخبار</div>
 
     <div class="news-content">
@@ -204,114 +207,24 @@ body{
   </div>
 
 </div>
-<!-- ===== قسم نشاطات في news1.html ===== -->
-<div class="section" id="activitiesSection">
-  <div class="section-title">نشاطات الجمعية</div>
-  <div class="box" id="activityBox">
-    <!-- الأخبار والنشاطات سيتم إضافتها هنا بواسطة جافاسكربت -->
-  </div>
-</div>
 
-<script>
-// ===== عنصر صندوق النشاطات =====
-const activityBox = document.getElementById('activityBox');
-
-// الحصول على تاريخ اليوم
-const today = new Date();
-const day = String(today.getDate()).padStart(2,"0");
-const month = today.toLocaleString('ar-DZ', {month: 'long'});
-const year = today.getFullYear();
-const todayDate = `${day} ${month} ${year}`;
-
-// ===== الخبر الكبير =====
-const newsToday = document.createElement('div');
-newsToday.className = 'item';
-newsToday.innerText = `#نشاطات_الجمعية_خارج_الولاية (${todayDate})
-
-تم اليوم نقل جثمان المغفور له بإذن الله: 
-"#منديلي_رشيد" والذي وافته المنية صبيحة اليوم الإثنين 02 فيفري 2026 بمستشفى مجدوب السعيد ببلدية الطاهر، ولاية جيجل،
-حيث تم نقله من ذات المستشفى إلى مسقط رأسه ببلدية عين التين، مركز ولاية ميلة.
-
-▪️ الانطلاق من بلديتنا: 12:30 زوالًا
-▪️ الوصول إلى المستشفى: 14:15 زوالًا
-▪️ إعادة الانطلاق نحو بلدية عين التين: 15:00 زوالًا والوصول على الساعة: 17:00 مساءً حيث تم إلقاء النظرة الأخيرة على جثمانه وتم التوجه به إلى مقبرة عين التين المركزية والحضور في عملية الدفن.
-▪️ العودة والوصول إلى بلديتنا: حوالي 17:45 مساءً
-
-🤲 الدعاء:
-نسأل الله العلي القدير أن يتغمد الفقيد بواسع رحمته، وأن يجعل قبره روضة من رياض الجنة، ويثبته عند السؤال، ويجعل مثواه الجنة، ويلهم أهله وذويه جميل الصبر والسلوان.
-
-كما نسأل الله أن يجزي السائق المتطوع ومرافقه خير الجزاء، ويبارك في جهودهما، ويجعل ما قاما به في ميزان حسناتهما، ويحفظهما من كل سوء.
-ولا يفوتنا أن نتقدم بالدعاء لكل الداعمين والمحسنين وأعضاء الجمعية، سائلين المولى عز وجل أن يخلف عليهم خيرًا، ويبارك في أموالهم وأعمالهم، ويجعل دعمهم هذا صدقة جارية لهم في الدنيا والآخرة.`;
-
-// إضافة الخبر أولًا
-activityBox.appendChild(newsToday);
-
-// ===== باقي النشاطات =====
-const otherActivities = [
-  "📌 توزيع قفف غذائية",
-  "📌 مساعدة العائلات المحتاجة",
-  "📌 إفطار الصائم",
-  "📌 حملات تضامن"
-];
-
-otherActivities.forEach(act=>{
-  const div = document.createElement('div');
-  div.className = 'item';
-  div.innerText = act;
-  activityBox.appendChild(div);
-});
-</script>
-
-<style>
-/* ===== تنسيقات قسم النشاطات ===== */
-#activitiesSection{
-  margin-top:20px;
-}
-
-.section-title{
-  font-size:22px;
-  font-weight:700;
-  color:gold;
-  text-shadow:0 0 10px rgba(255,215,0,0.8);
-  margin-bottom:10px;
-}
-
-.box{
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,215,0,0.4);
-  border-radius:15px;
-  padding:15px;
-  max-height:60vh;
-  overflow-y:auto;
-}
-
-.item{
-  padding:10px;
-  margin-bottom:10px;
-  border-bottom:1px dashed rgba(255,255,255,0.3);
-  font-size:16px;
-  font-weight:700;
-  line-height:1.5;
-}
-.item:last-child{border-bottom:none;}
-</style>
 <div class="footer">
   © الجمعية الخيرية مسك الختام
 </div>
 
 <script>
+// ===== تحديث الساعة والتاريخ =====
 function updateClock(){
   const now = new Date();
-  const h = String(now.getHours()).padStart(2,'0');
-  const m = String(now.getMinutes()).padStart(2,'0');
-  const s = String(now.getSeconds()).padStart(2,'0');
-  const d = String(now.getDate()).padStart(2,'0');
-  const mo = String(now.getMonth()+1).padStart(2,'0');
-  const y = now.getFullYear();
-  document.getElementById('clock').textContent =
-    `${h}:${m}:${s} - ${d}/${mo}/${y}`;
+  const hours = String(now.getHours()).padStart(2,'0');
+  const minutes = String(now.getMinutes()).padStart(2,'0');
+  const seconds = String(now.getSeconds()).padStart(2,'0');
+  const day = String(now.getDate()).padStart(2,'0');
+  const month = String(now.getMonth()+1).padStart(2,'0');
+  const year = now.getFullYear();
+  document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} - ${day}/${month}/${year}`;
 }
-setInterval(updateClock,1000);
+setInterval(updateClock, 1000);
 updateClock();
 </script>
 
