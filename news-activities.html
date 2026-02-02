@@ -3,25 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نشاطات الجمعية</title>
-
+<title>الصفحة الرئيسية - الجمعية</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Cairo', Tahoma;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',Tahoma;}
 
 body{
   min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
   background:url("background.jpg") no-repeat center center fixed;
   background-size:cover;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:20px;
 }
 
 .overlay{
@@ -35,10 +30,7 @@ body{
 }
 
 /* اللوغو */
-.logo{
-  width:90px;
-  margin-bottom:10px;
-}
+.logo{width:90px;margin-bottom:10px;}
 
 /* العنوان */
 .title{
@@ -49,18 +41,17 @@ body{
   margin-bottom:15px;
 }
 
-/* صندوق المحتوى */
+/* صندوق النشاطات */
 .box{
   background:rgba(255,255,255,0.08);
   border:1px solid rgba(255,215,0,0.4);
   border-radius:15px;
   padding:15px;
   margin-top:10px;
-  max-height: 70vh;
-  overflow-y: auto;
+  max-height:70vh;
+  overflow-y:auto;
 }
 
-/* عنصر النشاط */
 .item{
   padding:10px;
   margin-bottom:10px;
@@ -69,17 +60,9 @@ body{
   font-weight:700;
   line-height:1.5;
 }
+.item:last-child{border-bottom:none;}
 
-.item:last-child{
-  border-bottom:none;
-}
-
-/* الفوتر */
-.footer{
-  margin-top:15px;
-  font-size:13px;
-  opacity:0.8;
-}
+.footer{margin-top:15px;font-size:13px;opacity:0.8;}
 </style>
 </head>
 
@@ -92,17 +75,15 @@ body{
   <div class="title">نشاطات الجمعية</div>
 
   <div class="box" id="activityBox">
-    <!-- الخبر الجديد سيضاف هنا -->
+    <!-- هنا سيتم إضافة النشاطات -->
   </div>
 
-  <div class="footer">
-    الجمعية الخيرية مسك الختام ©
-  </div>
+  <div class="footer">الجمعية الخيرية مسك الختام ©</div>
 
 </div>
 
 <script>
-// ===== الحصول على عنصر صندوق النشاطات =====
+// ===== إضافة النشاطات مباشرة من news-activities =====
 const activityBox = document.getElementById('activityBox');
 
 // الحصول على تاريخ اليوم
@@ -129,7 +110,7 @@ newsToday.innerText = `#نشاطات_الجمعية_خارج_الولاية (${t
 🤲 الدعاء:
 نسأل الله العلي القدير أن يتغمد الفقيد بواسع رحمته، وأن يجعل قبره روضة من رياض الجنة، ويثبته عند السؤال، ويجعل مثواه الجنة، ويلهم أهله وذويه جميل الصبر والسلوان.
 
-كما نسأل الله أن يجزي السائق المتطوع ومرافقه خير الجزاء، ويبارك في جهودهما، ويجعل ما قاما به في ميزان حسناتهما، وأن يحفظهما من كل سوء.
+كما نسأل الله أن يجزي السائق المتطوع ومرافقه خير الجزاء، ويبارك في جهودهما، ويجعل ما قاما به في ميزان حسناتهما، ويحفظهما من كل سوء.
 ولا يفوتنا أن نتقدم بالدعاء لكل الداعمين والمحسنين وأعضاء الجمعية، سائلين المولى عز وجل أن يخلف عليهم خيرًا، ويبارك في أموالهم وأعمالهم، ويجعل دعمهم هذا صدقة جارية لهم في الدنيا والآخرة.`;
 
 // إضافة الخبر أولًا
