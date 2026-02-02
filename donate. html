@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تبرع | الجمعية الخيرية مسك الختام</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:'Cairo',Tahoma;
+}
+
+body{
+  margin:0;
+  background:#f3f3f3;
+}
+
+/* ===== رأس الصفحة ===== */
+.header{
+  background:linear-gradient(135deg,#000,#1a1a1a);
+  color:white;
+  padding:25px 30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 6px 20px rgba(0,0,0,0.5);
+}
+
+.header-logo{
+  width:150px;
+  height:auto;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+}
+
+.header-title{
+  text-align:right;
+}
+
+.header-title h1{
+  font-size:46px;
+  margin:0;
+  font-weight:900;
+}
+
+.header-title h2{
+  font-size:52px;
+  margin:10px 0 0;
+  color:#ffd700;
+}
+
+/* ===== الحاوية ===== */
+.container{
+  max-width:1000px;
+  margin:40px auto;
+  padding:0 15px;
+}
+
+/* ===== بطاقة التبرع ===== */
+.news-card{
+  background:white;
+  border-radius:18px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.18);
+  overflow:hidden;
+  margin-bottom:40px;
+}
+
+.news-content{
+  padding:30px;
+}
+
+.news-date{
+  font-size:20px;
+  color:#777;
+  margin-bottom:15px;
+}
+
+.news-title{
+  font-size:42px;
+  font-weight:900;
+  margin-bottom:20px;
+  color:#000;
+}
+
+.news-text{
+  font-size:32px;
+  line-height:2;
+  color:#333;
+  font-weight:700;
+}
+
+/* ===== زر الرجوع ===== */
+.back-btn{
+  display:inline-block;
+  margin:20px auto 0;
+  padding:12px 35px;
+  background:#000;
+  color:#ffd700;
+  font-size:22px;
+  font-weight:900;
+  border-radius:35px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  background:#ffd700;
+  color:#000;
+}
+
+/* ===== ذيل الصفحة ===== */
+.footer{
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:25px;
+  font-size:18px;
+  margin-top:60px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== الرأس ===== -->
+<div class="header">
+  <div class="header-title">
+    <h1>الجمعية الخيرية مسك الختام بلدية القرارم قوقة</h1>
+    <h2>💖 تبرع</h2>
+  </div>
+  <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
+</div>
+
+<div class="container">
+
+  <!-- ===== خبر التبرع ===== -->
+  <div class="news-card">
+    <div class="news-content">
+
+      <div class="news-date">
+        الإثنين 02 فيفري 2026
+      </div>
+
+      <div class="news-title">
+        <strong>🩸 نــــداء</strong>
+      </div>
+
+      <div class="news-text">
+        نبيل بوراس في حاجة ماسة للدّم زمرة <strong>+O</strong> للتبرع.<br><br>
+        نرجو من القادرين التقرب من
+        <strong>مستشفى الإخوة طوبال – ميلة</strong><br>
+        أو الاتصال على الرقم التالي:<br><br>
+        <strong>📞 0773835533</strong>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- زر الرجوع -->
+  <div style="text-align:center;">
+    <a href="news1.html" class="back-btn">⬅ الرجوع إلى صفحة الأخبار</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  © 2026 الجمعية الخيرية مسك الختام – قسم التبرع
+</div>
+
+</body>
+</html>
