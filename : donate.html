@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تبرع | الجمعية الخيرية مسك الختام</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;font-family:'Cairo',Tahoma;}
+body{margin:0;background:#f3f3f3;}
+
+/* ===== رأس الصفحة ===== */
+.header{
+  background:linear-gradient(135deg,#000,#1a1a1a);
+  color:white;
+  padding:25px 30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 6px 20px rgba(0,0,0,0.5);
+}
+
+.header-logo{
+  width:150px;
+  height:auto;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+}
+
+/* عنوان القسم */
+.header-title{text-align:right;}
+.header-title h1{font-size:50px;margin:0;font-weight:900;}
+.header-title h2{font-size:55px;margin:10px 0 0;color:#ffd700;}
+
+/* ===== شريط الأخبار المتحرك ===== */
+#newsTicker{
+  width:100%;
+  overflow:hidden;
+  white-space:nowrap;
+  background:rgba(255,215,0,0.1);
+  padding:10px 0;
+  font-weight:700;
+  font-size:22px;
+  color:gold;
+  border-bottom:2px solid #333;
+  position:relative;
+  margin-bottom:30px;
+}
+#newsTicker span{
+  display:inline-block;
+  position:relative;
+  left:100%;
+  animation:scrollLeft 20s linear infinite;
+}
+@keyframes scrollLeft{
+  0%{left:100%;}
+  100%{left:-100%;}
+}
+
+/* ===== الحاوية ===== */
+.container{
+  max-width:1000px;
+  margin:50px auto;
+  padding:0 15px;
+  text-align:right;
+}
+
+/* ===== عنوان رئيسي ===== */
+.section-title{
+  font-size:50px;
+  font-weight:900;
+  color:#000;
+  margin-bottom:30px;
+  text-align:center;
+}
+
+/* ===== محتوى التبرع ===== */
+.donate-text{
+  font-size:32px;
+  line-height:2;
+  color:#333;
+  font-weight:700;
+  text-align:right;
+  margin-bottom:40px;
+}
+
+/* ===== ذيل الصفحة ===== */
+.footer{
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:25px;
+  font-size:18px;
+  margin-top:60px;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== الرأس ===== -->
+<div class="header">
+  <div class="header-title">
+    <h1>الجمعية الخيرية مسك الختام بلدية القرارم قوقة</h1>
+    <h2>💛 تبرع</h2>
+  </div>
+  <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
+</div>
+
+<!-- ===== شريط الأخبار المتحرك ===== -->
+<div id="newsTicker">
+  <span>
+    🌟 شكراً لكل من يساهم في دعم مشاريع الجمعية – مساهمتك تصنع الفرق! &nbsp;&nbsp;&nbsp; 
+    💛 التبرعات المالية والمواد تصل مباشرة للمحتاجين &nbsp;&nbsp;&nbsp;
+    🙏 شارك في حملة رمضان لهذا العام وساعد العائلات المحتاجة
+  </span>
+</div>
+
+<div class="container">
+  <div class="section-title">تبرع</div>
+
+  <div class="donate-text">
+    مرحبًا بكم في صفحة التبرع الخاصة بالجمعية الخيرية مسك الختام.<br><br>
+    يمكنك دعم أعمال الجمعية والمساهمة في مشاريع الخير المتنوعة من خلال: <br>
+    - التبرع المالي.<br>
+    - التبرع بالمواد الغذائية والملابس.<br>
+    - المشاركة في الحملات الإنسانية.<br><br>
+    جميع تبرعاتكم تصب مباشرة في خدمة المستفيدين وتدعم مشاريعنا الخيرية.<br><br>
+    لمزيد من المعلومات، يرجى التواصل معنا عبر البريد الإلكتروني أو الهاتف الموجود في صفحة الاتصال.
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 الجمعية الخيرية مسك الختام بلدية القرارم قوقة – تبرع
+</div>
+
+</body>
+</html>
