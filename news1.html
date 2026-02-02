@@ -17,7 +17,7 @@ body{
   background:#f2f2f2;
 }
 
-/* ===== رأس الموقع ===== */
+/* ===== رأس الصفحة ===== */
 .header{
   background:#111;
   color:white;
@@ -47,17 +47,11 @@ body{
   color:#ffd700;
 }
 
-.header-logo{
-  width:180px;
-  height:auto;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
-}
-
-/* ===== ساعة رقمية ===== */
+/* ===== ساعة وتاريخ ===== */
 .clock{
   font-size:28px;
   font-weight:700;
-  color:#00ff00;
+  color:white;  /* الساعة بيضاء */
   margin-top:10px;
   text-align:right;
 }
@@ -150,6 +144,12 @@ body{
   padding:20px;
   font-size:18px;
 }
+
+.header-logo{
+  width:180px;
+  height:auto;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+}
 </style>
 </head>
 
@@ -160,7 +160,7 @@ body{
   <div class="header-left">
     <div class="header-title">أخبار مسك الختام</div>
     <div class="header-subtitle">الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة</div>
-    <div class="clock" id="clock">--:--:--</div>
+    <div class="clock" id="clock">--:--:-- -- --/--/----</div>
   </div>
   <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
 </div>
@@ -200,16 +200,19 @@ body{
 </div>
 
 <script>
-// ===== تحديث الساعة الرقمية =====
+// ===== تحديث الساعة والتاريخ =====
 function updateClock(){
   const now = new Date();
   const hours = String(now.getHours()).padStart(2,'0');
   const minutes = String(now.getMinutes()).padStart(2,'0');
   const seconds = String(now.getSeconds()).padStart(2,'0');
-  document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+  const day = String(now.getDate()).padStart(2,'0');
+  const month = String(now.getMonth()+1).padStart(2,'0');
+  const year = now.getFullYear();
+  document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} - ${day}/${month}/${year}`;
 }
 setInterval(updateClock, 1000);
-updateClock(); // لتحديثها فور التحميل
+updateClock();
 </script>
 
 </body>
