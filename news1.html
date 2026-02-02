@@ -26,6 +26,13 @@ body{
   align-items:center;
   justify-content:space-between;
   box-shadow:0 6px 18px rgba(0,0,0,0.5);
+  flex-wrap:wrap;
+}
+
+.header-left{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
 }
 
 .header-title{
@@ -33,10 +40,26 @@ body{
   font-weight:900;
 }
 
+.header-subtitle{
+  font-size:28px;  /* حجم متوسط */
+  font-weight:700;
+  margin-top:6px;
+  color:#ffd700;
+}
+
 .header-logo{
   width:180px;
   height:auto;
   filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+}
+
+/* ===== ساعة رقمية ===== */
+.clock{
+  font-size:28px;
+  font-weight:700;
+  color:#00ff00;
+  margin-top:10px;
+  text-align:right;
 }
 
 /* ===== الحاوية ===== */
@@ -67,11 +90,10 @@ body{
   background:#000;
   display:flex;
   flex-wrap:wrap;
-  gap:8px;                     /* مسافة بين الخانات */
+  gap:8px;                     
   padding:10px;
 }
 
-/* الخانة */
 .category{
   flex:1;
   min-width:150px;
@@ -83,8 +105,8 @@ body{
   text-decoration:none;
 
   background:#000;
-  border:2px solid #333;       /* إطار */
-  border-radius:14px;          /* زوايا مستديرة */
+  border:2px solid #333;       
+  border-radius:14px;          
 
   transition:0.3s;
 }
@@ -135,7 +157,11 @@ body{
 
 <!-- ===== رأس الصفحة ===== -->
 <div class="header">
-  <div class="header-title">أخبار مسك الختام</div>
+  <div class="header-left">
+    <div class="header-title">أخبار مسك الختام</div>
+    <div class="header-subtitle">الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة</div>
+    <div class="clock" id="clock">--:--:--</div>
+  </div>
   <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
 </div>
 
@@ -172,6 +198,19 @@ body{
 <div class="footer">
   © الجمعية الخيرية مسك الختام
 </div>
+
+<script>
+// ===== تحديث الساعة الرقمية =====
+function updateClock(){
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2,'0');
+  const minutes = String(now.getMinutes()).padStart(2,'0');
+  const seconds = String(now.getSeconds()).padStart(2,'0');
+  document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+}
+setInterval(updateClock, 1000);
+updateClock(); // لتحديثها فور التحميل
+</script>
 
 </body>
 </html>
