@@ -49,7 +49,7 @@ body{
 /* ===== بطاقة خبر ===== */
 .news-card{
   background:white;
-  border-radius:14px;
+  border-radius:16px;
   overflow:hidden;
   box-shadow:0 6px 20px rgba(0,0,0,0.15);
   margin-bottom:40px;
@@ -62,29 +62,37 @@ body{
   object-fit:cover;
 }
 
-/* ===== شريط التصنيفات ===== */
+/* ===== شريط الخانات ===== */
 .categories{
   background:#000;
   display:flex;
   flex-wrap:wrap;
+  gap:8px;                     /* مسافة بين الخانات */
+  padding:10px;
 }
 
+/* الخانة */
 .category{
   flex:1;
-  min-width:160px;
+  min-width:150px;
   text-align:center;
-  padding:18px 10px;
+  padding:16px 10px;
   color:white;
   font-size:26px;
   font-weight:800;
   text-decoration:none;
-  border-left:1px solid #222;
+
+  background:#000;
+  border:2px solid #333;       /* إطار */
+  border-radius:14px;          /* زوايا مستديرة */
+
   transition:0.3s;
 }
 
 .category:hover{
   background:#222;
   color:#ffd700;
+  transform:translateY(-2px);
 }
 
 /* محتوى الخبر */
@@ -137,9 +145,9 @@ body{
   <div class="news-card">
     <img src="background1.png" alt="خبر">
 
-    <!-- شريط المستطيلات -->
+    <!-- شريط الخانات -->
     <div class="categories">
-      <a href="akarrem-gouga.html" class="category">أخبار القرارم قوقة</a>
+      <a href="ramadan-basket.html" class="category">قفة رمضان</a>
       <a href="donate.html" class="category">تبرع</a>
       <a href="activities.html" class="category">نشاطات</a>
       <a href="local.html" class="category">محلية</a>
