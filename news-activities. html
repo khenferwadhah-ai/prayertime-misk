@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>نشاطات الجمعية</title>
+<title>نشاطات الجمعية | الجمعية الخيرية مسك الختام بلدية القرارم قوقة</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
@@ -134,3 +134,111 @@ body{
 }
 
 .news-date{
+  font-size:21px;
+  color:#777;
+  margin-bottom:25px;
+}
+
+.news-text{
+  font-size:35px;
+  line-height:2;
+  color:#333;
+  font-weight:700;
+}
+
+/* ===== ذيل الصفحة ===== */
+.footer{
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:20px;
+  font-size:18px;
+}
+
+.header-logo{
+  width:180px;
+  height:auto;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== رأس الصفحة ===== -->
+<div class="header">
+  <div class="header-left">
+    <div class="header-title">أخبار مسك الختام</div>
+    <div class="header-subtitle">الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة</div>
+    <div class="clock" id="clock">--:--:-- -- --/--/----</div>
+  </div>
+  <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
+</div>
+
+<div class="container">
+
+  <!-- ===== شريط الخانات ===== -->
+  <div class="categories">
+    <a href="ramadan-basket.html" class="category">قفة رمضان</a>
+    <a href="donate.html" class="category">تبرع</a>
+    <a href="news-activities.html" class="category">نشاطات الجمعية</a>
+    <a href="local-news.html" class="category">أخبار محلية</a>
+    <a href="national-news.html" class="category">أخبار وطنية</a>
+    <a href="missing.html" class="category">لوحة مفقودات</a>
+    <a href="charity.html" class="category">أعمال خيرية</a>
+  </div>
+
+  <!-- ===== جملة آخر الأخبار ===== -->
+  <div class="latest-news">⏰ آخر الأخبار</div>
+
+  <!-- ===== مثال خبر ===== -->
+  <div class="news-card">
+    <img src="activity1.jpg" alt="نشاط الجمعية">
+
+    <div class="news-content">
+      <div class="news-title">انطلاق نشاط التوعية المجتمعية</div>
+      <div class="news-date">📅 05 مارس 2026 ⏰ 10:30 صباحًا</div>
+      <div class="news-text">
+        قامت الجمعية الخيرية مسك الختام بتنظيم نشاط توعية مجتمعية حول النظافة العامة
+        وفوائد العمل التطوعي، بمشاركة مجموعة من المتطوعين الشباب.
+      </div>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <img src="activity2.jpg" alt="نشاط الجمعية">
+
+    <div class="news-content">
+      <div class="news-title">ورشة عمل للأطفال</div>
+      <div class="news-date">📅 08 مارس 2026 ⏰ 16:45 مساءً</div>
+      <div class="news-text">
+        تم تنظيم ورشة عمل للأطفال لتعليمهم مهارات الرسم والإبداع،
+        وذلك ضمن سلسلة النشاطات الثقافية والترفيهية التي تقدمها الجمعية.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  © الجمعية الخيرية مسك الختام
+</div>
+
+<script>
+// ===== تحديث الساعة والتاريخ =====
+function updateClock(){
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2,'0');
+  const minutes = String(now.getMinutes()).padStart(2,'0');
+  const seconds = String(now.getSeconds()).padStart(2,'0');
+  const day = String(now.getDate()).padStart(2,'0');
+  const month = String(now.getMonth()+1).padStart(2,'0');
+  const year = now.getFullYear();
+  document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} - ${day}/${month}/${year}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>
