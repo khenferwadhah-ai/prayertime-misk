@@ -2,11 +2,18 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>أخبار مسك الختام | الجمعية الخيرية مسك الختام</title>
+<title>أخبار مسك الختام</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box;font-family:'Cairo',Tahoma;}
-body{margin:0;background:#f2f2f2;}
+*{
+  box-sizing:border-box;
+  font-family:'Cairo',Tahoma;
+}
+body{
+  margin:0;
+  background:#f2f2f2;
+}
 
 /* ===== رأس الصفحة ===== */
 .header{
@@ -25,23 +32,20 @@ body{margin:0;background:#f2f2f2;}
   align-items:flex-end;
 }
 .header-title{
-  font-size:70px;
+  font-size:60px;
   font-weight:900;
 }
 .header-subtitle{
-  font-size:28px;
+  font-size:26px;
   font-weight:700;
   margin-top:6px;
   color:#ffd700;
 }
-/* ===== ساعة وتاريخ ===== */
-.clock{
-  font-size:28px;
-  font-weight:700;
-  color:white;
-  margin-top:10px;
-  text-align:right;
+.header-logo{
+  width:160px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
 }
+
 /* ===== الحاوية ===== */
 .container{
   max-width:1000px;
@@ -49,50 +53,10 @@ body{margin:0;background:#f2f2f2;}
   padding:0 15px;
 }
 
-/* ===== شريط الأقسام ===== */
-.categories{
-  background:#fff;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  padding:10px;
-  margin-bottom:20px;
-}
-.category{
-  flex:1;
-  min-width:150px;
-  text-align:center;
-  padding:16px 10px;
-  color:#000;
-  font-size:26px;
-  font-weight:800;
-  text-decoration:none;
-  background:#fff;
-  border:2px solid #333;
-  border-radius:14px;
-  transition:0.3s;
-  cursor:pointer;
-}
-.category:hover{
-  background:#f0f0f0;
-  color:#ffd700;
-  transform:translateY(-2px);
-}
-
-/* ===== أقسام الأخبار ===== */
-.section{
-  display:none; /* يخفي كل الأقسام افتراضياً */
-}
-.section.active{
-  display:block; /* القسم النشط يظهر */
-  text-align:center;
-}
-
-/* ===== بطاقات الأخبار ===== */
+/* ===== بطاقة خبر ===== */
 .news-card{
   background:white;
   border-radius:16px;
-  overflow:hidden;
   box-shadow:0 6px 20px rgba(0,0,0,0.15);
   margin-bottom:40px;
 }
@@ -100,27 +64,38 @@ body{margin:0;background:#f2f2f2;}
   padding:30px;
 }
 .news-title{
-  font-size:45px;
+  font-size:40px;
   font-weight:900;
   margin-bottom:15px;
   color:#000;
 }
 .news-date{
-  font-size:21px;
+  font-size:20px;
   color:#777;
-  margin-bottom:25px;
+  margin-bottom:20px;
 }
 .news-text{
-  font-size:35px;
+  font-size:28px;
   line-height:2;
   color:#333;
   font-weight:700;
 }
 
-/* ===== كلمة "قريبًا" ===== */
-.coming-soon{
-  font-size:80px;
+/* ===== زر الرجوع ===== */
+.back-btn{
+  display:inline-block;
+  margin:30px auto;
+  padding:12px 30px;
+  background:#000;
+  color:#ffd700;
+  font-size:20px;
   font-weight:900;
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.3s;
+}
+.back-btn:hover{
+  background:#ffd700;
   color:#000;
 }
 
@@ -132,133 +107,79 @@ body{margin:0;background:#f2f2f2;}
   padding:20px;
   font-size:18px;
 }
-.header-logo{
-  width:180px;
-  height:auto;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
-}
 </style>
 </head>
+
 <body>
 
-<!-- ===== الرأس ===== -->
+<!-- ===== رأس الصفحة ===== -->
 <div class="header">
   <div class="header-left">
     <div class="header-title">أخبار مسك الختام</div>
-    <div class="header-subtitle">الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة</div>
-    <div class="clock" id="clock">--:--:-- -- --/--/----</div>
+    <div class="header-subtitle">الجمعية الخيرية مسك الختام – القرارم قوقة ولاية ميلة</div>
   </div>
   <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
 </div>
 
 <div class="container">
 
-  <!-- ===== شريط الأقسام ===== -->
-  <div class="categories">
-    <div class="category" data-section="ramadan">قفة رمضان</div>
-    <div class="category" data-section="donate">تبرع</div>
-    <div class="category" data-section="news-national">أخبار وطنية</div>
-    <div class="category" data-section="news-charity">أعمال خيرية</div>
-  </div>
+  <!-- ===== الخبر الأول ===== -->
+  <div class="news-card" id="news-mendili">
+    <div class="news-content">
+      <div class="news-title">#نشاطات_الجمعية_خارج_الولاية</div>
+      <div class="news-date">الإثنين 02 فيفري 2026</div>
+      <div class="news-text">
+        تم اليوم نقل جثمان المغفور له بإذن الله <strong>منديلي رشيد</strong>،  
+        من مستشفى مجدوب السعيد ببلدية الطاهر – ولاية جيجل،  
+        إلى مسقط رأسه ببلدية عين التين، ولاية ميلة.<br><br>
 
-  <!-- ===== قسم قفة رمضان ===== -->
-  <div class="section" id="ramadan">
-    <div class="news-card">
-      <img src="ramadan1.jpg" alt="قفة رمضان">
-      <div class="news-content">
-        <div class="news-title">انطلاق حملة قفة رمضان</div>
-        <div class="news-date">05 مارس 2026</div>
-        <div class="news-text">
-          تعلن الجمعية الخيرية مسك الختام عن انطلاق حملة قفة رمضان
-          لفائدة العائلات المعوزة، وذلك في إطار التضامن والتكافل الاجتماعي
-          خلال هذا الشهر الفضيل.
-        </div>
-      </div>
-    </div>
-    <div class="news-card">
-      <div class="coming-soon">قريبًا</div>
-    </div>
-  </div>
+        ▪️ الانطلاق: 12:30 زوالًا<br>
+        ▪️ الوصول إلى المستشفى: 14:15 زوالًا<br>
+        ▪️ الانطلاق نحو عين التين: 15:00 زوالًا<br>
+        ▪️ الوصول: 17:00 مساءً<br>
+        ▪️ العودة: حوالي 17:45 مساءً<br><br>
 
-  <!-- ===== قسم التبرع ===== -->
-  <div class="section" id="donate">
-    <div class="news-card">
-      <div class="news-content">
-        <div class="news-title"><strong>نداء</strong></div>
-        <div class="news-text">
-          🩸🩸 نبيل بوراس في حاجة ماسة للدّم زمرة +O للتبرع.<br>
-          أرجو التقرب من مستشفى الإخوة طوبال ميلة أو الاتصال على الرقم التالي:<br>
-          <strong>0773835533</strong>
-        </div>
-      </div>
-    </div>
-    <div class="news-card">
-      <div class="coming-soon">قريبًا</div>
-    </div>
-  </div>
-
-  <!-- ===== قسم الأخبار الوطنية ===== -->
-  <div class="section" id="news-national">
-    <div class="news-card">
-      <div class="news-content">
-        <div class="news-title"><strong>سيدي مروان رسالة عائلة عماد خميسي</strong></div>
-        <div class="news-text">
-          السلام عليكم<br>
-          قال العلامة عبد الحميد بن باديس رحمه الله:<br>
-          شعب الجزائر مسلم والی العروبة ينتسب<br>
-          وأنا أضيف أن الشعب الجزائري عظيم ورحيم ومتضامن وعجيب وفحل.<br>
-          أصالة عن نفسي ونيابة عن عائلة عماد خميسي أتقدم بجزيل الشكر والامتنان وفائق الاحترام لكل المتضامنين معنا في محنتنا شعبا وحكومة من داخل وخارج الوطن.<br>
-          اطمئن اخواني واخواتي على حالة عماد المستقرة وغير الخطيرة وانما هي مسألة وقت قصير حتى يزول النفخ الظاهر على وجهه وستجرى العملية إن شاء الله في الوقت القريب.<br>
-          وعليه فانا أنوه بالمجهودات الجبارة والرعاية الصحية الفائقة من طرف جميع عمال مستشفى مغلاوة واتقدم بالشكر الخاص لمدير المستشفى الذي تردد على غرفة ابني اكثر مما ترددت عليها والطبيبة الجراحة أيضا ومندوب الصح ومدير الصحة لولاية ميلة والسلطات الولائية والامنية على زيارتهم لبني.<br>
-          الخلل فينا نحن الزوار لأننا لم نحترم أوقات الزيارة ونطيل الحديث مع المريض ونعرقل عمل المختصين وهذا ليس في صالح المريض ويؤخر إجراء العملية الجراحية وفي شفاء أخيكم.<br>
-          شكراً جزيلاً على زياراتكم ودعواتكم واتصالاتكم.<br>
-          ربي يستركم ويحفظكم ويجازيكم عنا أحسن الجزاء فلا تبخلوا عليه بالدعاء.... أبو عماد.
-        </div>
+        🤲 نسأل الله أن يتغمد الفقيد بواسع رحمته،  
+        ويجعل قبره روضة من رياض الجنة،  
+        ويلهم أهله جميل الصبر والسلوان.
       </div>
     </div>
   </div>
 
-  <!-- ===== قسم أعمال خيرية ===== -->
-  <div class="section" id="news-charity">
-    <div class="coming-soon">قريبًا</div>
+  <!-- ===== الخبر الثاني ===== -->
+  <div class="news-card" id="news-maraji">
+    <div class="news-content">
+      <div class="news-title">#نشاطات_الجمعية_خارج_الولاية</div>
+      <div class="news-date">الأحد 02 فيفري 2026</div>
+      <div class="news-text">
+        تم يوم أمس نقل جثمان المغفور لها بإذن الله  
+        <strong>مراجي علجية</strong>  
+        من مطار محمد بوضياف بقسنطينة  
+        إلى مسقط رأسها ببلدية أولاد يحي خدروش – ولاية جيجل.<br><br>
+
+        ▪️ الانطلاق: 17:00 مساءً<br>
+        ▪️ وصول الطائرة: 19:30 مساءً<br>
+        ▪️ مغادرة المطار: 20:40 مساءً<br>
+        ▪️ الوصول: 23:00 ليلًا<br>
+        ▪️ العودة: 00:45 صباحًا<br><br>
+
+        🤲 اللهم اغفر لها وارحمها،  
+        وثبتها عند السؤال،  
+        وألهم أهلها الصبر والسلوان.
+      </div>
+    </div>
+  </div>
+
+  <!-- زر الرجوع -->
+  <div style="text-align:center;">
+    <a href="index.html" class="back-btn">⬅ الرجوع إلى لوحة المواقيت</a>
   </div>
 
 </div>
 
 <div class="footer">
-  © الجمعية الخيرية مسك الختام
+  © 2026 الجمعية الخيرية مسك الختام
 </div>
-
-<script>
-// ===== تحديث الساعة والتاريخ =====
-function updateClock(){
-  const now = new Date();
-  const hours = String(now.getHours()).padStart(2,'0');
-  const minutes = String(now.getMinutes()).padStart(2,'0');
-  const seconds = String(now.getSeconds()).padStart(2,'0');
-  const day = String(now.getDate()).padStart(2,'0');
-  const month = String(now.getMonth()+1).padStart(2,'0');
-  const year = now.getFullYear();
-  document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} - ${day}/${month}/${year}`;
-}
-setInterval(updateClock, 1000);
-updateClock();
-
-// ===== تبديل الأقسام عند الضغط =====
-const categoryButtons = document.querySelectorAll('.category');
-const sections = document.querySelectorAll('.section');
-
-categoryButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const target = btn.getAttribute('data-section');
-    sections.forEach(sec => sec.classList.remove('active'));
-    document.getElementById(target).classList.add('active');
-  });
-});
-
-// عرض القسم الأول تلقائياً
-document.getElementById('ramadan').classList.add('active');
-</script>
 
 </body>
 </html>
