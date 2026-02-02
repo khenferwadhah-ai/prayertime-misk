@@ -3,20 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الصفحة الرئيسية - الجمعية</title>
+<title>نشاطات الجمعية</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',Tahoma;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Cairo', Tahoma;
+}
 
 body{
   min-height:100vh;
-  background:url("background.jpg") no-repeat center center fixed;
-  background-size:cover;
   display:flex;
   justify-content:center;
   align-items:flex-start;
   padding-top:20px;
+  background:url("background.jpg") no-repeat center center fixed;
+  background-size:cover;
 }
 
 .overlay{
@@ -60,6 +66,7 @@ body{
   font-weight:700;
   line-height:1.5;
 }
+
 .item:last-child{border-bottom:none;}
 
 .footer{margin-top:15px;font-size:13px;opacity:0.8;}
@@ -75,7 +82,7 @@ body{
   <div class="title">نشاطات الجمعية</div>
 
   <div class="box" id="activityBox">
-    <!-- هنا سيتم إضافة النشاطات -->
+    <!-- الخبر سيتم إضافته هنا -->
   </div>
 
   <div class="footer">الجمعية الخيرية مسك الختام ©</div>
@@ -83,7 +90,7 @@ body{
 </div>
 
 <script>
-// ===== إضافة النشاطات مباشرة من news-activities =====
+// ===== عنصر صندوق النشاطات =====
 const activityBox = document.getElementById('activityBox');
 
 // الحصول على تاريخ اليوم
@@ -93,13 +100,13 @@ const month = today.toLocaleString('ar-DZ', {month: 'long'});
 const year = today.getFullYear();
 const todayDate = `${day} ${month} ${year}`;
 
-// الخبر الكبير
+// ===== الخبر الكبير =====
 const newsToday = document.createElement('div');
 newsToday.className = 'item';
 newsToday.innerText = `#نشاطات_الجمعية_خارج_الولاية (${todayDate})
 
 تم اليوم نقل جثمان المغفور له بإذن الله: 
-"#منديلي_رشيد" والذي وافته المنية صبيحة اليوم بمستشفى مجدوب السعيد ببلدية الطاهر، ولاية جيجل،
+"#منديلي_رشيد" والذي وافته المنية صبيحة اليوم الإثنين 02 فيفري 2026 بمستشفى مجدوب السعيد ببلدية الطاهر، ولاية جيجل،
 حيث تم نقله من ذات المستشفى إلى مسقط رأسه ببلدية عين التين، مركز ولاية ميلة.
 
 ▪️ الانطلاق من بلديتنا: 12:30 زوالًا
@@ -116,7 +123,7 @@ newsToday.innerText = `#نشاطات_الجمعية_خارج_الولاية (${t
 // إضافة الخبر أولًا
 activityBox.appendChild(newsToday);
 
-// باقي النشاطات
+// ===== باقي النشاطات =====
 const otherActivities = [
   "📌 توزيع قفف غذائية",
   "📌 مساعدة العائلات المحتاجة",
