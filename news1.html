@@ -11,31 +11,33 @@ body {
   background: #f0f0f0; /* خلفية الصفحة فاتحة */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* العنوان أعلى الصفحة */
   min-height: 100vh;
 }
 
 .container {
   background: #ffffff; /* خلفية الكتابة بيضاء */
-  padding: 30px;
+  padding: 40px 30px 30px 30px;
   border-radius: 12px;
-  max-width: 700px;
+  max-width: 800px;
   width: 90%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-top: 40px; /* مسافة من أعلى الصفحة */
 }
 
 h1 {
   text-align: center;       /* العنوان في الوسط */
-  font-weight: 700;         /* العنوان عريض */
+  font-weight: 900;         /* عريض جدًا */
   color: #000000;           /* اللون أسود */
-  margin-bottom: 20px;
-  font-size: 28px;          /* تكبير بسيط للعنوان */
+  margin-bottom: 30px;
+  font-size: 48px;          /* تكبير العنوان جدًا */
 }
 
 p {
-  font-size: 18px;          /* تكبير نص الخبر قليلاً */
-  line-height: 1.6;
+  font-size: 24px;          /* تكبير نص الخبر لكن أقل من العنوان */
+  line-height: 1.8;
   color: #333333;
+  margin-bottom: 20px;
 }
 </style>
 </head>
