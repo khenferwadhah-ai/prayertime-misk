@@ -25,23 +25,21 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  box-shadow:0 6px 18px rgba(0,0,0,0.5); /* ظل الرأس */
+  box-shadow:0 6px 18px rgba(0,0,0,0.5);
 }
 
-/* عنوان الرأس */
 .header-title{
   font-size:70px;
   font-weight:900;
 }
 
-/* اللوغو */
 .header-logo{
   width:180px;
   height:auto;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6)); /* ظل اللوغو */
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
 }
 
-/* ===== الحاوية العامة ===== */
+/* ===== الحاوية ===== */
 .container{
   max-width:1000px;
   margin:40px auto;
@@ -59,9 +57,34 @@ body{
 
 /* صورة الخبر */
 .news-card img{
-  width:50%;
+  width:100%;
   height:500px;
   object-fit:cover;
+}
+
+/* ===== شريط التصنيفات ===== */
+.categories{
+  background:#000;
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.category{
+  flex:1;
+  min-width:160px;
+  text-align:center;
+  padding:18px 10px;
+  color:white;
+  font-size:26px;
+  font-weight:800;
+  text-decoration:none;
+  border-left:1px solid #222;
+  transition:0.3s;
+}
+
+.category:hover{
+  background:#222;
+  color:#ffd700;
 }
 
 /* محتوى الخبر */
@@ -114,6 +137,16 @@ body{
   <div class="news-card">
     <img src="background1.png" alt="خبر">
 
+    <!-- شريط المستطيلات -->
+    <div class="categories">
+      <a href="akarrem-gouga.html" class="category">أخبار القرارم قوقة</a>
+      <a href="donate.html" class="category">تبرع</a>
+      <a href="activities.html" class="category">نشاطات</a>
+      <a href="local.html" class="category">محلية</a>
+      <a href="national.html" class="category">وطنية</a>
+      <a href="international.html" class="category">دولية</a>
+    </div>
+
     <div class="news-content">
       <div class="news-title">🌙 تذكير بصيام أيام البيض</div>
       <div class="news-date">الأحد 01 فيفري 2026</div>
@@ -122,19 +155,6 @@ body{
         تبدأ أيام البيض من يوم غد الأحد 01 فيفري 2026 إلى غاية يوم الثلاثاء 03 فيفري 2026.
         يُستحب صيام هذه الأيام لما فيها من أجر عظيم وفضل كبير.
         نسأل الله أن يتقبل من الجميع صالح الأعمال.
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== خبر 2 ===== -->
-  <div class="news-card">
-    <div class="news-content">
-      <div class="news-title">📢 إعلان هام</div>
-      <div class="news-date">السبت 31 جانفي 2026</div>
-
-      <div class="news-text">
-        تعلن الجمعية الخيرية مسك الختام عن تنظيم نشاط خيري خلال هذا الأسبوع،
-        وندعو الجميع للمشاركة والمساهمة بما تيسر.
       </div>
     </div>
   </div>
