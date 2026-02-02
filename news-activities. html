@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>نشاطات الجمعية | الجمعية الخيرية مسك الختام بلدية القرارم قوقة</title>
+<title>قفة رمضان | الجمعية الخيرية مسك الختام بلدية القرارم قوقة</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
@@ -14,111 +14,69 @@
 
 body{
   margin:0;
-  background:#f2f2f2;
+  background:#f3f3f3;
 }
 
 /* ===== رأس الصفحة ===== */
 .header{
-  background:#111;
+  background:linear-gradient(135deg,#000,#1a1a1a);
   color:white;
-  padding:20px 30px;
+  padding:25px 30px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  box-shadow:0 6px 18px rgba(0,0,0,0.5);
-  flex-wrap:wrap;
+  box-shadow:0 6px 20px rgba(0,0,0,0.5);
 }
 
-.header-left{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
+.header-logo{
+  width:150px;
+  height:auto;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
 }
 
+/* عنوان الجمعية */
 .header-title{
-  font-size:70px;
+  text-align:right;
+}
+
+.header-title h1{
+  font-size:50px;
+  margin:0;
   font-weight:900;
 }
 
-.header-subtitle{
-  font-size:28px;
-  font-weight:700;
-  margin-top:6px;
+.header-title h2{
+  font-size:55px;
+  margin:10px 0 0;
   color:#ffd700;
-}
-
-/* ===== ساعة وتاريخ ===== */
-.clock{
-  font-size:28px;
-  font-weight:700;
-  color:white;
-  margin-top:10px;
-  text-align:right;
 }
 
 /* ===== الحاوية ===== */
 .container{
   max-width:1000px;
-  margin:40px auto;
+  margin:50px auto;
   padding:0 15px;
 }
 
-/* ===== بطاقة الخبر ===== */
+/* ===== بطاقة خبر ===== */
 .news-card{
   background:white;
-  border-radius:16px;
+  border-radius:18px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.18);
   overflow:hidden;
-  box-shadow:0 6px 20px rgba(0,0,0,0.15);
   margin-bottom:40px;
-}
-
-.news-card img{
-  width:100%;
-  height:500px;
-  object-fit:cover;
-}
-
-/* ===== شريط الخانات ===== */
-.categories{
-  background:#fff;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  padding:10px;
-}
-
-.category{
-  flex:1;
-  min-width:150px;
-  text-align:center;
-  padding:16px 10px;
-  color:#000;
-  font-size:26px;
-  font-weight:800;
-  text-decoration:none;
-  background:#fff;
-  border:2px solid #333;
-  border-radius:14px;
   transition:0.3s;
 }
 
-.category:hover{
-  background:#f0f0f0;
-  color:#ffd700;
-  transform:translateY(-2px);
+.news-card:hover{
+  transform:translateY(-4px);
 }
 
-/* ===== آخر الأخبار ===== */
-.latest-news{
-  font-size:28px;
-  font-weight:700;
-  margin:20px 0 10px;
-  color:#111;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  border-bottom:2px solid #333; /* سطر تحت آخر الأخبار */
-  padding-bottom:5px;
+/* صورة الخبر */
+.news-image{
+  width:100%;
+  height:420px;
+  object-fit:cover;
 }
 
 /* محتوى الخبر */
@@ -126,21 +84,27 @@ body{
   padding:30px;
 }
 
+/* عنوان الخبر */
 .news-title{
-  font-size:45px;
+  font-size:42px;
   font-weight:900;
   margin-bottom:15px;
   color:#000;
 }
 
-.news-date{
-  font-size:21px;
+/* تاريخ وساعة */
+.news-meta{
+  font-size:22px;
   color:#777;
   margin-bottom:25px;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
 }
 
+/* نص الخبر */
 .news-text{
-  font-size:35px;
+  font-size:34px;
   line-height:2;
   color:#333;
   font-weight:700;
@@ -151,69 +115,62 @@ body{
   background:#111;
   color:#ccc;
   text-align:center;
-  padding:20px;
+  padding:25px;
   font-size:18px;
-}
-
-.header-logo{
-  width:180px;
-  height:auto;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+  margin-top:60px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===== رأس الصفحة ===== -->
+<!-- ===== الرأس ===== -->
 <div class="header">
-  <div class="header-left">
-    <div class="header-title">أخبار مسك الختام</div>
-    <div class="header-subtitle">الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة</div>
-    <div class="clock" id="clock">--:--:-- -- --/--/----</div>
+  <div class="header-title">
+    <h1>الجمعية الخيرية مسك الختام بلدية القرارم قوقة</h1>
+    <h2>🧺 قفة رمضان</h2>
   </div>
   <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
 </div>
 
 <div class="container">
 
-  <!-- ===== شريط الخانات ===== -->
-  <div class="categories">
-    <a href="ramadan-basket.html" class="category">قفة رمضان</a>
-    <a href="donate.html" class="category">تبرع</a>
-    <a href="news-activities.html" class="category">نشاطات الجمعية</a>
-    <a href="local-news.html" class="category">أخبار محلية</a>
-    <a href="national-news.html" class="category">أخبار وطنية</a>
-    <a href="missing.html" class="category">لوحة مفقودات</a>
-    <a href="charity.html" class="category">أعمال خيرية</a>
-  </div>
-
-  <!-- ===== جملة آخر الأخبار ===== -->
-  <div class="latest-news">⏰ آخر الأخبار</div>
-
-  <!-- ===== مثال خبر ===== -->
+  <!-- ===== خبر 1 ===== -->
   <div class="news-card">
-    <img src="activity1.jpg" alt="نشاط الجمعية">
+    <img src="ramadan1.jpg" class="news-image" alt="قفة رمضان">
 
     <div class="news-content">
-      <div class="news-title">انطلاق نشاط التوعية المجتمعية</div>
-      <div class="news-date">📅 05 مارس 2026 ⏰ 10:30 صباحًا</div>
+      <div class="news-title">انطلاق حملة قفة رمضان</div>
+
+      <div class="news-meta">
+        <span>📅 التاريخ: 05 مارس 2026</span>
+        <span>⏰ الساعة: 10:30 صباحًا</span>
+      </div>
+
       <div class="news-text">
-        قامت الجمعية الخيرية مسك الختام بتنظيم نشاط توعية مجتمعية حول النظافة العامة
-        وفوائد العمل التطوعي، بمشاركة مجموعة من المتطوعين الشباب.
+        تعلن الجمعية الخيرية مسك الختام عن انطلاق حملة قفة رمضان
+        لفائدة العائلات المعوزة، وذلك في إطار التضامن والتكافل الاجتماعي
+        خلال هذا الشهر الفضيل.
       </div>
     </div>
   </div>
 
+  <!-- ===== خبر 2 ===== -->
   <div class="news-card">
-    <img src="activity2.jpg" alt="نشاط الجمعية">
+    <img src="ramadan2.jpg" class="news-image" alt="توزيع قفة رمضان">
 
     <div class="news-content">
-      <div class="news-title">ورشة عمل للأطفال</div>
-      <div class="news-date">📅 08 مارس 2026 ⏰ 16:45 مساءً</div>
+      <div class="news-title">توزيع الدفعة الأولى من قفة رمضان</div>
+
+      <div class="news-meta">
+        <span>📅 التاريخ: 08 مارس 2026</span>
+        <span>⏰ الساعة: 16:45 مساءً</span>
+      </div>
+
       <div class="news-text">
-        تم تنظيم ورشة عمل للأطفال لتعليمهم مهارات الرسم والإبداع،
-        وذلك ضمن سلسلة النشاطات الثقافية والترفيهية التي تقدمها الجمعية.
+        تم بحمد الله توزيع الدفعة الأولى من قفة رمضان
+        على عدد من العائلات المحتاجة،
+        وسط أجواء إنسانية وتطوعية راقية.
       </div>
     </div>
   </div>
@@ -221,24 +178,8 @@ body{
 </div>
 
 <div class="footer">
-  © الجمعية الخيرية مسك الختام
+  © 2026 الجمعية الخيرية مسك الختام بلدية القرارم قوقة – قفة رمضان
 </div>
-
-<script>
-// ===== تحديث الساعة والتاريخ =====
-function updateClock(){
-  const now = new Date();
-  const hours = String(now.getHours()).padStart(2,'0');
-  const minutes = String(now.getMinutes()).padStart(2,'0');
-  const seconds = String(now.getSeconds()).padStart(2,'0');
-  const day = String(now.getDate()).padStart(2,'0');
-  const month = String(now.getMonth()+1).padStart(2,'0');
-  const year = now.getFullYear();
-  document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} - ${day}/${month}/${year}`;
-}
-setInterval(updateClock, 1000);
-updateClock();
-</script>
 
 </body>
 </html>
