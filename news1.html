@@ -113,34 +113,13 @@ body{
 
 /* ===== آخر الأخبار ===== */
 .latest-news{
-  font-size:50px;
+  font-size:28px;
   font-weight:700;
   margin:20px 0 10px;
   color:#111;
   display:flex;
   align-items:center;
   gap:10px;
-  position:relative;
-  padding-bottom:10px;
-  cursor:default;
-}
-
-/* السطر تحت آخر الأخبار */
-.latest-news::after{
-  content:"";
-  display:block;
-  width:0;
-  height:3px;
-  background:#ccc;
-  margin-top:5px;
-  border-radius:2px;
-  transition: width 0.4s ease;
-}
-
-/* تمدد السطر عند المرور على النص */
-.latest-news:hover::after{
-  width:100%;
-  background:#ffd700; /* يصبح ذهبي عند التحريك */
 }
 
 /* محتوى الخبر */
