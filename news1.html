@@ -2,7 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>أخبار مسك الختام</title>
+<title>الأخبار</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
@@ -10,6 +11,7 @@
   box-sizing:border-box;
   font-family:'Cairo',Tahoma;
 }
+
 body{
   margin:0;
   background:#f2f2f2;
@@ -26,24 +28,32 @@ body{
   box-shadow:0 6px 18px rgba(0,0,0,0.5);
   flex-wrap:wrap;
 }
+
 .header-left{
   display:flex;
   flex-direction:column;
   align-items:flex-end;
 }
+
 .header-title{
-  font-size:60px;
+  font-size:70px;
   font-weight:900;
 }
+
 .header-subtitle{
-  font-size:26px;
+  font-size:28px;
   font-weight:700;
   margin-top:6px;
   color:#ffd700;
 }
-.header-logo{
-  width:160px;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+
+/* ===== ساعة وتاريخ ===== */
+.clock{
+  font-size:28px;
+  font-weight:700;
+  color:white;
+  margin-top:10px;
+  text-align:right;
 }
 
 /* ===== الحاوية ===== */
@@ -57,46 +67,83 @@ body{
 .news-card{
   background:white;
   border-radius:16px;
+  overflow:hidden;
   box-shadow:0 6px 20px rgba(0,0,0,0.15);
   margin-bottom:40px;
 }
+
+.news-card img{
+  width:100%;
+  height:500px;
+  object-fit:cover;
+}
+
+/* ===== شريط الخانات ===== */
+.categories{
+  background:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:10px;
+}
+
+.category{
+  flex:1;
+  min-width:150px;
+  text-align:center;
+  padding:16px 10px;
+  color:#000;
+  font-size:26px;
+  font-weight:800;
+  text-decoration:none;
+  background:#fff;
+  border:2px solid #333;
+  border-radius:14px;
+  transition:0.3s;
+}
+
+.category:hover{
+  background:#f0f0f0;
+  color:#ffd700;
+  transform:translateY(-2px);
+}
+
+/* ===== آخر الأخبار ===== */
+.latest-news{
+  font-size:28px;
+  font-weight:700;
+  margin:20px 0 10px;
+  color:#111;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border-bottom:2px solid #333; /* سطر تحت آخر الأخبار */
+  padding-bottom:5px;
+}
+
+/* محتوى الخبر */
 .news-content{
   padding:30px;
 }
+
 .news-title{
-  font-size:40px;
+  font-size:45px;
   font-weight:900;
   margin-bottom:15px;
   color:#000;
 }
+
 .news-date{
-  font-size:20px;
+  font-size:21px;
   color:#777;
-  margin-bottom:20px;
+  margin-bottom:25px;
 }
+
 .news-text{
-  font-size:28px;
+  font-size:35px;
   line-height:2;
   color:#333;
   font-weight:700;
-}
-
-/* ===== زر الرجوع ===== */
-.back-btn{
-  display:inline-block;
-  margin:30px auto;
-  padding:12px 30px;
-  background:#000;
-  color:#ffd700;
-  font-size:20px;
-  font-weight:900;
-  border-radius:30px;
-  text-decoration:none;
-  transition:0.3s;
-}
-.back-btn:hover{
-  background:#ffd700;
-  color:#000;
 }
 
 /* ===== ذيل الصفحة ===== */
@@ -107,6 +154,12 @@ body{
   padding:20px;
   font-size:18px;
 }
+
+.header-logo{
+  width:180px;
+  height:auto;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+}
 </style>
 </head>
 
@@ -116,70 +169,64 @@ body{
 <div class="header">
   <div class="header-left">
     <div class="header-title">أخبار مسك الختام</div>
-    <div class="header-subtitle">الجمعية الخيرية مسك الختام – القرارم قوقة ولاية ميلة</div>
+    <div class="header-subtitle">الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة</div>
+    <div class="clock" id="clock">--:--:-- -- --/--/----</div>
   </div>
   <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
 </div>
 
 <div class="container">
 
-  <!-- ===== الخبر الأول ===== -->
-  <div class="news-card" id="news-mendili">
+  <!-- ===== خبر 1 ===== -->
+  <div class="news-card">
+    <img src="background1.png" alt="خبر">
+
+    <!-- شريط الخانات -->
+    <div class="categories">
+      <a href="ramadan-basket.html" class="category">قفة رمضان</a>
+      <a href="donate.html" class="category">تبرع</a>
+      <a href="https://prayertime-misk.vercel.app/activities.html" class="category">نشاطات الجمعية</a>
+      <a href="local.html" class="category">أخبار وطنية</a>
+      <a href="missing.html" class="category">مفقودات</a>
+      <a href="charity.html" class="category">أعمال خيرية</a>
+    </div>
+
+    <!-- ===== جملة آخر الأخبار ===== -->
+    <div class="latest-news">⏰ آخر الأخبار</div>
+
     <div class="news-content">
-      <div class="news-title">#نشاطات_الجمعية_خارج_الولاية</div>
-      <div class="news-date">الإثنين 02 فيفري 2026</div>
+      <div class="news-title">🌙 تذكير بصيام أيام البيض</div>
+      <div class="news-date">الأحد 01 فيفري 2026</div>
+
       <div class="news-text">
-        تم اليوم نقل جثمان المغفور له بإذن الله <strong>منديلي رشيد</strong>،  
-        من مستشفى مجدوب السعيد ببلدية الطاهر – ولاية جيجل،  
-        إلى مسقط رأسه ببلدية عين التين، ولاية ميلة.<br><br>
-
-        ▪️ الانطلاق: 12:30 زوالًا<br>
-        ▪️ الوصول إلى المستشفى: 14:15 زوالًا<br>
-        ▪️ الانطلاق نحو عين التين: 15:00 زوالًا<br>
-        ▪️ الوصول: 17:00 مساءً<br>
-        ▪️ العودة: حوالي 17:45 مساءً<br><br>
-
-        🤲 نسأل الله أن يتغمد الفقيد بواسع رحمته،  
-        ويجعل قبره روضة من رياض الجنة،  
-        ويلهم أهله جميل الصبر والسلوان.
+        تبدأ أيام البيض من يوم غد الأحد 01 فيفري 2026 إلى غاية يوم الثلاثاء 03 فيفري 2026.
+        يُستحب صيام هذه الأيام لما فيها من أجر عظيم وفضل كبير.
+        نسأل الله أن يتقبل من الجميع صالح الأعمال.
       </div>
     </div>
-  </div>
-
-  <!-- ===== الخبر الثاني ===== -->
-  <div class="news-card" id="news-maraji">
-    <div class="news-content">
-      <div class="news-title">#نشاطات_الجمعية_خارج_الولاية</div>
-      <div class="news-date">الأحد 02 فيفري 2026</div>
-      <div class="news-text">
-        تم يوم أمس نقل جثمان المغفور لها بإذن الله  
-        <strong>مراجي علجية</strong>  
-        من مطار محمد بوضياف بقسنطينة  
-        إلى مسقط رأسها ببلدية أولاد يحي خدروش – ولاية جيجل.<br><br>
-
-        ▪️ الانطلاق: 17:00 مساءً<br>
-        ▪️ وصول الطائرة: 19:30 مساءً<br>
-        ▪️ مغادرة المطار: 20:40 مساءً<br>
-        ▪️ الوصول: 23:00 ليلًا<br>
-        ▪️ العودة: 00:45 صباحًا<br><br>
-
-        🤲 اللهم اغفر لها وارحمها،  
-        وثبتها عند السؤال،  
-        وألهم أهلها الصبر والسلوان.
-      </div>
-    </div>
-  </div>
-
-  <!-- زر الرجوع -->
-  <div style="text-align:center;">
-    <a href="index.html" class="back-btn">⬅ الرجوع إلى لوحة المواقيت</a>
   </div>
 
 </div>
 
 <div class="footer">
-  © 2026 الجمعية الخيرية مسك الختام
+  © الجمعية الخيرية مسك الختام
 </div>
+
+<script>
+// ===== تحديث الساعة والتاريخ =====
+function updateClock(){
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2,'0');
+  const minutes = String(now.getMinutes()).padStart(2,'0');
+  const seconds = String(now.getSeconds()).padStart(2,'0');
+  const day = String(now.getDate()).padStart(2,'0');
+  const month = String(now.getMonth()+1).padStart(2,'0');
+  const year = now.getFullYear();
+  document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} - ${day}/${month}/${year}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
 
 </body>
 </html>
