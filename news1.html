@@ -1,60 +1,135 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>خبر كتابي 1</title>
+<title>الأخبار</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
 <style>
-body {
-  font-family: 'Cairo', Tahoma;
-  margin: 0;
-  padding: 0;
-  background: #f0f0f0; /* خلفية الصفحة فاتحة */
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* العنوان أعلى الصفحة */
-  min-height: 100vh;
+*{
+  box-sizing:border-box;
+  font-family:'Cairo',Tahoma;
 }
 
-.container {
-  background: #ffffff; /* خلفية الكتابة بيضاء */
-  padding: 50px 40px 40px 40px;
-  border-radius: 12px;
-  max-width: 900px;
-  width: 95%;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-  margin-top: 50px; /* مسافة من أعلى الصفحة */
+body{
+  margin:0;
+  background:#f2f2f2;
 }
 
-h1 {
-  text-align: center;       /* العنوان في الوسط */
-  font-weight: 900;         /* عريض جدًا */
-  color: #000000;           /* اللون أسود */
-  margin-bottom: 40px;
-  font-size: 64px;          /* تكبير العنوان بشكل كبير جدًا */
-  line-height: 1.2;
+/* ===== رأس الموقع ===== */
+.header{
+  background:#111;
+  color:white;
+  padding:25px;
+  text-align:center;
+  font-size:36px;
+  font-weight:900;
 }
 
-p {
-  font-size: 28px;          /* تكبير نص الخبر */
-  line-height: 2;
-  color: #333333;
-  margin-bottom: 25px;
-  font-weight: 700;         /* نص واضح وعريض قليلاً */
+/* ===== الحاوية العامة ===== */
+.container{
+  max-width:1000px;
+  margin:40px auto;
+  padding:0 15px;
+}
+
+/* ===== بطاقة خبر ===== */
+.news-card{
+  background:white;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,0.15);
+  margin-bottom:40px;
+}
+
+/* صورة الخبر */
+.news-card img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+}
+
+/* محتوى الخبر */
+.news-content{
+  padding:30px;
+}
+
+.news-title{
+  font-size:42px;
+  font-weight:900;
+  margin-bottom:15px;
+  color:#000;
+}
+
+.news-date{
+  font-size:18px;
+  color:#777;
+  margin-bottom:25px;
+}
+
+.news-text{
+  font-size:26px;
+  line-height:2;
+  color:#333;
+  font-weight:700;
+}
+
+/* ===== ذيل الصفحة ===== */
+.footer{
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:20px;
+  font-size:18px;
 }
 </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>🌙 تذكير بصيام أيام البيض</h1>
-    <p>
-      تبدأ أيام البيض من يوم غد الأحد 01 فيفري 2026 إلى غاية يوم الثلاثاء 03 فيفري 2026.
-      يُستحب صيام هذه الأيام للفضيلة والأجر الكبير، ويعتبر من السنن المؤكدة في الدين.
-    </p>
-    <p>
-      يمكن للمؤمنين الاستفادة من هذا التذكير للالتزام بالصيام والأعمال الصالحة خلال هذه الأيام.
-      نسأل الله أن يتقبل صيامكم ويجعله خالصاً لوجهه الكريم.
-    </p>
+
+<div class="header">
+  📰 الأخبار والتذكيرات
+</div>
+
+<div class="container">
+
+  <!-- ===== خبر 1 ===== -->
+  <div class="news-card">
+    <!-- يمكنك حذف img إذا لا تريد صورة -->
+    <img src="background1.png" alt="خبر">
+
+    <div class="news-content">
+      <div class="news-title">🌙 تذكير بصيام أيام البيض</div>
+      <div class="news-date">الأحد 01 فيفري 2026</div>
+
+      <div class="news-text">
+        تبدأ أيام البيض من يوم غد الأحد 01 فيفري 2026 إلى غاية يوم الثلاثاء 03 فيفري 2026.
+        يُستحب صيام هذه الأيام لما فيها من أجر عظيم وفضل كبير.
+        نسأل الله أن يتقبل من الجميع صالح الأعمال.
+      </div>
+    </div>
   </div>
+
+  <!-- ===== خبر 2 (مثال) ===== -->
+  <div class="news-card">
+    <div class="news-content">
+      <div class="news-title">📢 إعلان هام</div>
+      <div class="news-date">السبت 31 جانفي 2026</div>
+
+      <div class="news-text">
+        تعلن الجمعية الخيرية مسك الختام عن تنظيم نشاط خيري خلال هذا الأسبوع،
+        وندعو الجميع للمشاركة والمساهمة بما تيسر.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  © الجمعية الخيرية مسك الختام
+</div>
+
 </body>
 </html>
