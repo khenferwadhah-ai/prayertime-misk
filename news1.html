@@ -8,26 +8,11 @@
 
 <style>
 *{box-sizing:border-box;font-family:'Cairo',Tahoma;}
-body{
-  margin:0;
-  background:transparent;
-}
-
-/* ===== خلفية HTML ===== */
-.bg-frame{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  border:none;
-  z-index:-1;
-  pointer-events:none;
-}
+body{margin:0;background:#f2f2f2;}
 
 /* ===== الهيدر ===== */
 .header{
-  background:rgba(0,0,0,0.85);
+  background:#111;
   color:white;
   padding:0 30px 20px;
   display:flex;
@@ -44,15 +29,16 @@ body{
   text-align:center;
 }
 
+/* MISK ELKHITHEM */
 .top-strip span{
   font-family:'Playfair Display', serif;
   font-size:28px;
   font-weight:900;
   letter-spacing:4px;
-  color:#fff;
+  color:#ffffff;
 }
 
-/* العنوان */
+/* محتوى العنوان */
 .header-left{
   display:flex;
   flex-direction:column;
@@ -75,23 +61,24 @@ body{
 .clock{
   font-size:28px;
   font-weight:700;
+  color:white;
   margin-top:10px;
+  text-align:right;
 }
 
 /* ===== المحتوى ===== */
 .container{
   max-width:1000px;
   margin:40px auto;
-  padding:20px 15px;
-  background:rgba(255,255,255,0.92);
-  border-radius:20px;
+  padding:0 15px;
 }
 
-/* الخانات */
 .categories{
+  background:#fff;
   display:flex;
   flex-wrap:wrap;
   gap:8px;
+  padding:10px;
 }
 
 .category{
@@ -99,10 +86,10 @@ body{
   min-width:150px;
   text-align:center;
   padding:16px 10px;
+  color:#000;
   font-size:26px;
   font-weight:800;
   text-decoration:none;
-  color:#000;
   background:#fff;
   border:2px solid #333;
   border-radius:14px;
@@ -111,13 +98,12 @@ body{
 
 .category:hover{
   background:#f0f0f0;
-  color:#d40000;
+  color:#ffd700;
   transform:translateY(-2px);
 }
 
-/* ===== الفوتر ===== */
 .footer{
-  background:rgba(0,0,0,0.85);
+  background:#111;
   color:#ccc;
   text-align:center;
   padding:20px;
@@ -126,8 +112,9 @@ body{
 
 .header-logo{
   width:180px;
+  height:auto;
   margin-top:15px;
-  filter:drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
 }
 
 /* ===== موبايل ===== */
@@ -141,12 +128,9 @@ body{
 
 <body>
 
-<!-- ===== الخلفية ===== -->
-<iframe src="background4.html" class="bg-frame"></iframe>
-
-<!-- ===== الهيدر ===== -->
 <div class="header">
 
+  <!-- الشريط العلوي -->
   <div class="top-strip">
     <span>MISK ELKHITHEM</span>
   </div>
@@ -156,13 +140,13 @@ body{
     <div class="header-subtitle">
       الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة
     </div>
-    <div class="clock" id="clock">--:--:--</div>
+    <div class="clock" id="clock">--:--:-- -- --/--/----</div>
   </div>
 
   <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
+
 </div>
 
-<!-- ===== المحتوى ===== -->
 <div class="container">
 
   <div class="categories">
@@ -182,7 +166,7 @@ body{
 function updateClock(){
   const n=new Date();
   document.getElementById('clock').textContent=
-  `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')} - ${n.getDate()}/${n.getMonth()+1}/${n.getFullYear()}`;
+  `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')} - ${String(n.getDate()).padStart(2,'0')}/${String(n.getMonth()+1).padStart(2,'0')}/${n.getFullYear()}`;
 }
 setInterval(updateClock,1000);updateClock();
 </script>
