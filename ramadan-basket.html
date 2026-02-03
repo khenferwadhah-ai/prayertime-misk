@@ -1,42 +1,262 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>أخبار مسك الختام</title>
 
-  <!-- جملة قفة رمضان باللون الذهبي وبدون وميض -->
-  <div class="ramadan-title">قفة رمضان</div>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
-  <!-- أقسام الأخبار ومربعات الاختيارات -->
-  <div class="categories">
-    <a href="ramadan-basket.html" class="category">قفة رمضان</a>
-    <a href="donate.html" class="category">تبرع</a>
-    <a href="activities.html" class="category">نشاطات الجمعية</a>
-    <a href="local.html" class="category">أخبار وطنية</a>
-    <a href="missing.html" class="category">مفقودات</a>
-    <a href="charity.html" class="category">أعمال خيرية</a>
+<style>
+*{box-sizing:border-box;font-family:'Cairo',Tahoma;}
+body{margin:0;background:#f2f2f2;}
+
+/* ===== الهيدر ===== */
+.header{
+  background:#111;
+  color:white;
+  padding:0 30px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+/* الشريط العلوي */
+.top-strip{
+  width:100%;
+  background:#000;
+  padding:8px 0;
+  text-align:center;
+}
+
+/* MISK ELKHITHEM */
+.top-strip span{
+  font-family:'Playfair Display', serif;
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:4px;
+  color:#ffffff;
+}
+
+/* محتوى العنوان */
+.header-left{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  margin-top:15px;
+}
+
+.header-title{
+  font-size:70px;
+  font-weight:900;
+}
+
+.header-subtitle{
+  font-size:28px;
+  font-weight:700;
+  margin-top:6px;
+  color:#ffd700;
+}
+
+.clock{
+  font-size:28px;
+  font-weight:700;
+  color:white;
+  margin-top:10px;
+  text-align:right;
+}
+
+.header-logo{
+  width:180px;
+  height:auto;
+  margin-top:15px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+}
+
+/* ===== المحتوى ===== */
+.container{
+  max-width:1000px;
+  margin:40px auto;
+  padding:0 15px;
+  text-align:center;
+}
+
+/* جملة قفة رمضان */
+.ramadan-title{
+  font-size:60px; /* تكبير الجملة */
+  font-weight:900;
+  color:gold;
+  margin-bottom:20px;
+}
+
+/* زر العودة */
+.back-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:15px 30px; /* تكبير الزر */
+  font-size:22px;    /* تكبير النص */
+  background:#ffd700;
+  color:#000;
+  font-weight:700;
+  border-radius:12px;
+  text-decoration:none;
+  transition:0.3s;
+}
+.back-btn:hover{
+  background:#e6c200;
+}
+
+/* أقسام الأخبار */
+.categories{
+  background:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:10px;
+}
+
+.category{
+  flex:1;
+  min-width:150px;
+  text-align:center;
+  padding:16px 10px;
+  color:#000;
+  font-size:26px;
+  font-weight:800;
+  text-decoration:none;
+  background:#fff;
+  border:2px solid #333;
+  border-radius:14px;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.category:hover{
+  background:#f0f0f0;
+  color:#ffd700;
+  transform:translateY(-2px);
+}
+
+/* مساحة عرض الأخبار */
+.news-content{
+  margin-top:30px;
+  background:#fff;
+  border:2px solid #333;
+  border-radius:14px;
+  padding:20px;
+  text-align:right;
+  font-size:20px;
+  color:#111;
+  line-height:1.6;
+}
+
+/* الفوتر */
+.footer{
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:20px;
+  font-size:18px;
+}
+
+/* ===== موبايل ===== */
+@media(max-width:768px){
+  .header-title{font-size:46px;}
+  .top-strip span{font-size:22px;}
+  .header-subtitle{font-size:20px;}
+  .ramadan-title{font-size:48px;}
+  .back-btn{font-size:18px; padding:12px 25px;}
+  .category{font-size:20px; padding:12px 8px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <div class="top-strip">
+    <span>MISK ELKHITHEM</span>
   </div>
 
-  <!-- زر العودة -->
-  <a href="news1.html" class="back-btn">⬅ العودة للأخبار</a>
-
-  <!-- الخبر: يوضع هنا مباشرة فوق الفوتر -->
-  <div class="news-card" style="background:white; padding:20px; border-radius:16px; margin:30px auto; max-width:800px; box-shadow:0 4px 12px rgba(0,0,0,0.2); text-align:right; font-size:24px; line-height:1.6;">
-    
-    <div class="news-title" style="font-size:32px; font-weight:900; margin-bottom:10px;">#نشاطات_الجمعية_خارج_الولاية</div>
-    
-    <div class="news-text">
-      تم اليوم نقل جثمان المغفور له بإذن الله: "" #منديلي_رشيد "" والذي وافته المنية صبيحة اليوم الإثنين 02 فيفري 2026 بمستشفى مجدوب السعيد ببلدية الطاهر، ولاية جيجل، حيث تم نقله من ذات المستشفى إلى مسقط رأسه ببلدية عين التين، مركز ولاية ميلة.
-      <br><br>
-      ▪️ الانطلاق من بلديتنا: 12:30 زوالًا<br>
-      ▪️ الوصول إلى المستشفى: 14:15 زوالًا<br>
-      ▪️ إعادة الانطلاق نحو بلدية عين التين: 15:00 زوالًا والوصول على الساعة: 17:00 مساءً حيث تم إلقاء النظرة الأخيرة على جثمانه وتم التوجه به إلى مقبرة عين التين المركزية والحضور في عملية الدفن.<br>
-      ▪️ العودة والوصول إلى بلديتنا: حوالي 17:45 مساءً
-      <br><br>
-      🤲 الدعاء:<br>
-      نسأل الله العلي القدير أن يتغمد الفقيد بواسع رحمته، وأن يجعل قبره روضة من رياض الجنة، ويثبته عند السؤال، ويجعل مثواه الجنة، ويلهم أهله وذويه جميل الصبر والسلوان.
-      <br><br>
-      كما نسأل الله أن يجزي السائق المتطوع ومرافقه خير الجزاء، وأن يبارك في جهودهما، ويجعل ما قاما به في ميزان حسناتهما، ويحفظهما من كل سوء. ولا يفوتنا أن نتقدم بالدعاء لكل الداعمين والمحسنين وأعضاء الجمعية، سائلين المولى عز وجل أن يخلف عليهم خيرًا، ويبارك في أموالهم وأعمالهم، ويجعل دعمهم هذا صدقة جارية لهم في الدنيا والآخرة.
+  <div class="header-left">
+    <div class="header-title">أخبار مسك الختام</div>
+    <div class="header-subtitle">
+      الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة
     </div>
+    <div class="clock" id="clock">--:--:-- -- --/--/----</div>
+  </div>
+
+  <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
+</div>
+
+<div class="container">
+
+  <!-- جملة قفة رمضان -->
+  <div class="ramadan-title">قفة رمضان</div>
+
+  <!-- زر العودة -->
+  <a href="#" class="back-btn" onclick="clearNews()">⬅ العودة للأخبار</a>
+
+  <!-- أقسام الأخبار -->
+  <div class="categories">
+    <div class="category" onclick="showNews('ramadan')">قفة رمضان</div>
+    <div class="category" onclick="showNews('donate')">تبرع</div>
+    <div class="category" onclick="showNews('activities')">نشاطات الجمعية</div>
+    <div class="category" onclick="showNews('local')">أخبار وطنية</div>
+    <div class="category" onclick="showNews('missing')">مفقودات</div>
+    <div class="category" onclick="showNews('charity')">أعمال خيرية</div>
+  </div>
+
+  <!-- مساحة عرض الأخبار -->
+  <div id="newsArea" class="news-content">
+    اضغط على أي قسم أعلاه لعرض الخبر هنا
   </div>
 
 </div>
 
-<!-- الفوتر -->
 <div class="footer">© الجمعية الخيرية مسك الختام</div>
+
+<script>
+// ساعة حية
+function updateClock(){
+  const n=new Date();
+  document.getElementById('clock').textContent=
+  `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')} - ${String(n.getDate()).padStart(2,'0')}/${String(n.getMonth()+1).padStart(2,'0')}/${n.getFullYear()}`;
+}
+setInterval(updateClock,1000); updateClock();
+
+// الأخبار لكل قسم
+const newsData = {
+  ramadan: `
+    <strong>#نشاطات_الجمعية_خارج_الولاية</strong><br><br>
+    تم اليوم نقل جثمان المغفور له بإذن الله: 
+    "" #منديلي_رشيد "" والذي وافته المنية صبيحة اليوم الإثنين 02 فيفري 2026 بمستشفى مجدوب السعيد ببلدية الطاهر، ولاية جيجل،
+    حيث تم نقله من ذات المستشفى إلى مسقط رأسه ببلدية عين التين، مركز ولاية ميلة.<br><br>
+    ▪️ الانطلاق من بلديتنا: 12:30 زوالًا<br>
+    ▪️ الوصول إلى المستشفى: 14:15 زوالًا<br>
+    ▪️ إعادة الانطلاق نحو بلدية عين التين: 15:00 زوالًا والوصول على الساعة: 17:00 مساءً حيث تم إلقاء النظرة الأخيرة على جثمانه وتم التوجه به لمقبرة عين التين المركزية والحضور في عملية الدفن.<br>
+    ▪️ العودة والوصول إلى بلديتنا: حوالي 17:45 مساءً<br><br>
+    🤲 الدعاء: نسأل الله العلي القدير أن يتغمد الفقيد بواسع رحمته، وأن يجعل قبره روضة من رياض الجنة، وأن يثبته عند السؤال، ويجعل مثواه الجنة، ويلهم أهله وذويه جميل الصبر والسلوان.<br><br>
+    كما نسأل الله أن يجزي السائق المتطوع ومرافقه خير الجزاء، وأن يبارك في جهودهما، ويجعل ما قاما به في ميزان حسناتهما، وأن يحفظهما من كل سوء.<br>
+    ولا يفوتنا أن نتقدم بالدعاء لكل الداعمين والمحسنين وأعضاء الجمعية، سائلين المولى عز وجل أن يخلف عليهم خيرًا، ويبارك في أموالهم وأعمالهم، ويجعل دعمهم هذا صدقة جارية لهم في الدنيا والآخرة.
+  `,
+  donate: "أخبار قسم التبرع ستظهر هنا...",
+  activities: "أخبار النشاطات ستظهر هنا...",
+  local: "أخبار وطنية ستظهر هنا...",
+  missing: "أخبار المفقودات ستظهر هنا...",
+  charity: "أخبار الأعمال الخيرية ستظهر هنا..."
+};
+
+// عرض الخبر عند الضغط على القسم
+function showNews(section){
+  document.getElementById('newsArea').innerHTML = newsData[section] || "لا يوجد أخبار حاليًا";
+}
+
+// زر العودة لمسح الخبر
+function clearNews(){
+  document.getElementById('newsArea').innerHTML = "اضغط على أي قسم أعلاه لعرض الخبر هنا";
+}
+</script>
+
+</body>
+</html>
