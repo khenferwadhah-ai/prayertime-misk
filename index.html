@@ -1,177 +1,21 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مواقيت الصلاة - ميلة</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Cairo',Tahoma;
-}
-
-body{
-  height:110vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:no-repeat center center fixed;
-  background-size:cover;
-  transition: background-image 1.5s ease-in-out;
-}
-
-.overlay{
-  width:95%;
-  max-width:420px;
-  background:rgba(0,0,0,0.50);
-  border-radius:18px;
-  padding:15px;
-  text-align:center;
-  color:white;
-  transform: scale(0.9);
-}
-
-.logo{
-  width:80px;
-  margin-bottom:8px;
-}
-
-/* ===== زر أخبار مسك الختام (نص فقط) ===== */
 .news-button{
   display:block;
-  margin:10px auto 14px;
-  font-size:20px;
-  font-weight:800;
+  width:90%;
+  max-width:320px;
+  margin:15px auto;
+  padding:14px 0;
+
+  /* حذف المستطيل الأبيض */
+  background:transparent;
+  box-shadow:none;
+
+  /* النص */
   color:white;
+  font-weight:800;
+  font-size:18px;
+  text-align:center;
   text-decoration:none;
-  animation:pulse 1s infinite;
-  text-shadow:0 0 10px rgba(255,255,255,0.9);
+
+  /* الوميض */
+  animation:blink 1s infinite;
 }
-
-@keyframes pulse{
-  0%   {opacity:1;}
-  50%  {opacity:0.3;}
-  100% {opacity:1;}
-}
-
-/* العناوين */
-.title{
-  font-size:20px;
-  font-weight:700;
-  text-shadow:0 0 10px gold;
-  margin-bottom:4px;
-}
-
-.date{
-  margin:2px 0;
-  font-size:14px;
-  font-weight:700;
-}
-
-/* جدول المواقيت */
-.table{margin-top:10px}
-
-.row{
-  display:flex;
-  justify-content:space-between;
-  padding:6px 8px;
-  border-bottom:1px solid rgba(255,255,255,.25);
-  font-weight:700;
-}
-
-.row.nextPrayer{
-  background:gold;
-  color:black;
-  border-radius:12px;
-}
-
-/* العد التنازلي */
-#countdownText{
-  font-size:24px;
-  font-weight:700;
-  margin:6px 0;
-  color:gold;
-  text-shadow:0 0 8px rgba(255,215,0,.8);
-}
-
-#nextPrayerClockContainer{
-  border:2px solid gold;
-  border-radius:10px;
-  padding:6px 12px;
-  box-shadow:0 0 15px rgba(255,215,0,.7);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
-
-#nextPrayerClock{
-  font-size:30px;
-}
-
-#nextPrayerClockContainer img{
-  width:35px;
-  height:35px;
-}
-
-.footer{
-  margin-top:10px;
-  font-size:14px;
-  display:flex;
-  justify-content:center;
-}
-</style>
-</head>
-
-<body>
-
-<div class="overlay">
-
-  <img src="logo.png" class="logo" alt="لوغو الجمعية">
-
-  <!-- زر الأخبار -->
-  <a href="news1.html" class="news-button" target="_blank">
-    إضغط أخبار مسك الختام
-  </a>
-
-  <div class="title">
-    (ٱلْجَمْعِيَّةُ ٱلْخَيْرِيَّةُ مِسْكُ ٱلْخِتَامِ ٱلْقَرَارِمِ قُوقَة)
-  </div>
-
-  <div class="date" id="gregorian">--</div>
-  <div class="date" id="hijri">--</div>
-
-  <div id="countdownText">-- بعد:</div>
-
-  <div id="nextPrayerClockContainer">
-    <img src="logo.webp" alt="جرس">
-    <div id="nextPrayerClock">--:--:--</div>
-  </div>
-
-  <div class="table" id="prayerTable"></div>
-
-  <div class="footer">
-    <span>misk elkhithem ©</span>
-  </div>
-
-</div>
-
-<script>
-function updateBackground(){
-  const h=new Date().getHours();
-  document.body.style.backgroundImage =
-    (h>=19||h<7)
-    ? 'url("background1.png")'
-    : 'url("background3.png")';
-}
-updateBackground();
-setInterval(updateBackground,60000);
-</script>
-
-</body>
-</html>
