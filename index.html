@@ -45,6 +45,7 @@ body{
   font-weight:700;
 }
 
+/* جدول المواقيت */
 .table{margin-top:10px}
 .row{
   display:flex;
@@ -83,31 +84,29 @@ body{
   height:35px;
 }
 
-/* ===== زر الأخبار ===== */
+/* ===== زر أخبار مسك الختام ===== */
 .news-button{
   display:block;
-  width:80%;
-  max-width:250px;
-  margin:12px auto 20px auto;
-  padding:10px 0;
-  background:transparent;
+  width:90%;
+  max-width:320px;
+  margin:15px auto;
+  padding:14px 0;
+  background:white;
   color:red;
   font-weight:800;
-  font-size:16px;
+  font-size:18px;
   text-align:center;
-  border:2px solid white;
-  border-radius:12px;
+  border-radius:14px;
   text-decoration:none;
-  position:relative;
-  overflow:hidden;
   animation:blink 1s infinite;
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
   transition:transform 0.3s, box-shadow 0.3s;
 }
 
 .news-button:hover,
 .news-button:active{
   transform:scale(1.05);
-  box-shadow:0 4px 12px rgba(255,0,0,0.6);
+  box-shadow:0 6px 15px rgba(255,0,0,0.5);
 }
 
 @keyframes blink{
@@ -118,39 +117,9 @@ body{
 @media screen and (max-width:480px){
   .news-button{
     font-size:18px;
-    padding:12px 0;
+    padding:14px 0;
     border-radius:14px;
   }
-}
-
-/* ===== شريط الأخبار مع روابط ===== */
-#newsTicker{
-  width:100%;
-  overflow:hidden;
-  white-space:nowrap;
-  border-radius:8px;
-  margin:5px 0 10px 0;
-  background:rgba(255,215,0,0.1);
-  padding:5px 0;
-  font-weight:700;
-  font-size:16px;
-  position:relative;
-  color:gold;
-}
-#newsTicker span{
-  display:inline-block;
-  position:relative;
-  left:-100%;
-  animation:scrollLeft 20s linear infinite;
-}
-#newsTicker a{
-  color:gold;
-  text-decoration:none;
-  margin:0 10px;
-}
-@keyframes scrollLeft{
-  0%{left:-100%;}
-  100%{left:100%;}
 }
 
 .footer{
@@ -170,7 +139,7 @@ body{
   <img src="logo.png" class="logo" alt="لوغو الجمعية">
 
   <!-- زر الأخبار -->
-  <a href="news1.html" class="news-button" target="_blank">📰 أخبار مسك الختام</a>
+  <a href="news1.html" class="news-button" target="_blank">إضغط أخبار مسك الختام</a>
 
   <div class="title">(ٱلْجَمْعِيَّةُ ٱلْخَيْرِيَّةُ مِسْكُ ٱلْخِتَامِ ٱلْقَرَارِمِ قُوقَة)</div>
 
