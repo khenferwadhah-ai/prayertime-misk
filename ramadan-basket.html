@@ -9,35 +9,87 @@
 <style>
 *{box-sizing:border-box;font-family:'Cairo',Tahoma;}
 body{margin:0;background:#f3f3f3;}
+
 .header{
-  background:#111;color:white;padding:20px 30px;display:flex;align-items:center;justify-content:space-between;}
-.header-title{font-size:50px;font-weight:900;}
-.header-logo{width:150px;height:auto;}
-.container{
-  max-width:1000px;margin:40px auto;padding:0 15px;text-align:center;
-  font-size:40px;font-weight:900;color:#555;
+  background:#111;
+  color:white;
+  padding:20px 30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
+
+.header-title{
+  font-size:50px;
+  font-weight:900;
+}
+
+.header-logo{
+  width:150px;
+  height:auto;
+}
+
+/* ===== عنوان صفحة الأخبار ===== */
+.page-title{
+  margin-top:30px;
+  text-align:center;
+  font-size:48px;
+  font-weight:900;
+  color:#000;
+}
+
+/* ===== محتوى الصفحة ===== */
+.container{
+  max-width:1000px;
+  margin:30px auto 40px;
+  padding:0 15px;
+  text-align:center;
+  font-size:40px;
+  font-weight:900;
+  color:#555;
+}
+
 .back-btn{
-  display:inline-block;margin:20px 0;padding:10px 20px;
-  background:#ffd700;color:#000;font-weight:700;border-radius:12px;
+  display:inline-block;
+  margin:20px 0;
+  padding:10px 20px;
+  background:#ffd700;
+  color:#000;
+  font-weight:700;
+  border-radius:12px;
   text-decoration:none;
 }
-.footer{background:#111;color:#ccc;text-align:center;padding:20px;font-size:18px;}
+
+.footer{
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:20px;
+  font-size:18px;
+}
 </style>
 </head>
 
 <body>
 
+<!-- الهيدر -->
 <div class="header">
   <div class="header-title">قفة رمضان</div>
   <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
 </div>
 
+<!-- عنوان مثل الصفحة الرئيسية للأخبار -->
+<div class="page-title">
+  أخبار الجمعية الخيرية مسك الختام
+</div>
+
+<!-- المحتوى -->
 <div class="container">
   <div>قريبًا</div>
   <a href="news1.html" class="back-btn">⬅ العودة للأخبار</a>
 </div>
 
+<!-- الفوتر -->
 <div class="footer">
   © الجمعية الخيرية مسك الختام
 </div>
