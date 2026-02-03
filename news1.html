@@ -110,37 +110,7 @@ body{margin:0;background:#f2f2f2;}
   transform:translateY(-2px);
 }
 
-/* ===== الأخبار ===== */
-.news-container{
-  margin-top:30px;
-  background:#fff;
-  padding:20px;
-  border-radius:12px;
-  text-align:right;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
-  display:none; /* يظهر فقط عند اختيار القسم */
-}
-
-.news-title{
-  font-size:32px;
-  font-weight:900;
-  margin-bottom:6px;
-}
-
-.news-date{
-  font-size:18px;
-  font-weight:700;
-  color:#555;
-  margin-bottom:12px;
-}
-
-.news-text{
-  font-size:35px;
-  font-weight:400;
-  line-height:1.6;
-  text-align:right;
-}
-
+/* ===== الفوتر ===== */
 .footer{
   background:#111;
   color:#ccc;
@@ -154,8 +124,6 @@ body{margin:0;background:#f2f2f2;}
   .header-title{font-size:46px;}
   .top-strip span{font-size:22px;}
   .header-subtitle{font-size:20px;}
-  .news-title{font-size:26px;}
-  .news-text{font-size:18px;}
 }
 </style>
 </head>
@@ -182,20 +150,14 @@ body{margin:0;background:#f2f2f2;}
 
 <div class="container">
 
+  <!-- أقسام الأخبار -->
   <div class="categories">
-    <div class="category" data-news="ramadan">قفة رمضان</div>
-    <div class="category" data-news="donate">تبرع</div>
-    <div class="category" data-news="activities">نشاطات الجمعية</div>
-    <div class="category" data-news="local">أخبار وطنية</div>
-    <div class="category" data-news="missing">مفقودات</div>
-    <div class="category" data-news="charity">أعمال خيرية</div>
-  </div>
-
-  <!-- قسم الأخبار -->
-  <div class="news-container" id="newsContainer">
-    <div class="news-title" id="newsTitle"></div>
-    <div class="news-date" id="newsDate"></div>
-    <div class="news-text" id="newsText"></div>
+    <div class="category">قفة رمضان</div>
+    <div class="category">تبرع</div>
+    <div class="category">نشاطات الجمعية</div>
+    <div class="category">أخبار وطنية</div>
+    <div class="category">مفقودات</div>
+    <div class="category">أعمال خيرية</div>
   </div>
 
 </div>
@@ -209,51 +171,8 @@ function updateClock(){
   document.getElementById('clock').textContent=
   `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')} - ${String(n.getDate()).padStart(2,'0')}/${String(n.getMonth()+1).padStart(2,'0')}/${n.getFullYear()}`;
 }
-setInterval(updateClock,1000);updateClock();
-
-// بيانات الأخبار لكل قسم
-const newsData = {
-  ramadan:{
-    title:"قفة رمضان",
-    text:حكمة اليوم
-العلم تور والجهل ظلام
-`,
-  },
-  donate:{
-    title:"تبرع",
-    text:"يمكنكم التبرع لدعم أنشطة الجمعية عبر الرابط المخصص.",
-  },
-  activities:{
-    title:"نشاطات الجمعية",
-    text:"هنا تجدون تفاصيل نشاطات الجمعية المختلفة.",
-  },
-  local:{
-    title:"أخبار وطنية",
-    text:"أحدث الأخبار الوطنية من مختلف ولايات الوطن.",
-  },
-  missing:{
-    title:"مفقودات",
-    text:"قائمة المفقودات والإعلانات المهمة هنا.",
-  },
-  charity:{
-    title:"أعمال خيرية",
-    text:"تقرير عن الأعمال الخيرية التي قامت بها الجمعية.",
-  }
-};
-
-// عرض الخبر عند الضغط على القسم
-document.querySelectorAll('.category').forEach(cat=>{
-  cat.addEventListener('click', ()=>{
-    const key = cat.getAttribute('data-news');
-    const news = newsData[key];
-    document.getElementById('newsTitle').textContent = news.title;
-    const now = new Date();
-    document.getElementById('newsDate').textContent = 
-      `${String(now.getDate()).padStart(2,'0')}/${String(now.getMonth()+1).padStart(2,'0')}/${now.getFullYear()} - ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-    document.getElementById('newsText').textContent = news.text;
-    document.getElementById('newsContainer').style.display = 'block';
-  });
-});
+setInterval(updateClock,1000);
+updateClock();
 </script>
 
 </body>
