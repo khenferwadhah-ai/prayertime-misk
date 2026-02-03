@@ -21,7 +21,6 @@ body{margin:0;background:#f2f2f2;}
   flex-wrap:wrap;
 }
 
-/* الشريط العلوي */
 .top-strip{
   width:100%;
   background:#000;
@@ -29,7 +28,6 @@ body{margin:0;background:#f2f2f2;}
   text-align:center;
 }
 
-/* MISK ELKHITHEM */
 .top-strip span{
   font-family:'Playfair Display', serif;
   font-size:28px;
@@ -38,7 +36,6 @@ body{margin:0;background:#f2f2f2;}
   color:#ffffff;
 }
 
-/* محتوى العنوان */
 .header-left{
   display:flex;
   flex-direction:column;
@@ -81,31 +78,6 @@ body{margin:0;background:#f2f2f2;}
   text-align:center;
 }
 
-/* جملة قفة رمضان */
-.ramadan-title{
-  font-size:70px; /* تكبير الجملة */
-  font-weight:900;
-  color:gold;
-  margin-bottom:20px;
-}
-
-/* زر العودة */
-.back-btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:15px 30px; /* تكبير الزر */
-  font-size:22px;    /* تكبير النص */
-  background:#ffd700;
-  color:#000;
-  font-weight:700;
-  border-radius:12px;
-  text-decoration:none;
-  transition:0.3s;
-}
-.back-btn:hover{
-  background:#e6c200;
-}
-
 /* أقسام الأخبار */
 .categories{
   background:#fff;
@@ -137,6 +109,37 @@ body{margin:0;background:#f2f2f2;}
   transform:translateY(-2px);
 }
 
+/* ===== منطقة عرض الأخبار ===== */
+.news-container{
+  margin-top:30px;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  text-align:right;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  display:none; /* يظهر عند الضغط على القسم */
+}
+
+.news-title{
+  font-size:32px;
+  font-weight:900; /* العنوان عريض */
+  margin-bottom:6px;
+}
+
+.news-date{
+  font-size:18px;
+  font-weight:700;
+  color:#555;
+  margin-bottom:12px;
+}
+
+.news-text{
+  font-size:20px; /* الخط متوسط */
+  font-weight:400;
+  line-height:1.6;
+  text-align:right;
+}
+
 /* ===== الفوتر ===== */
 .footer{
   background:#111;
@@ -151,8 +154,8 @@ body{margin:0;background:#f2f2f2;}
   .header-title{font-size:46px;}
   .top-strip span{font-size:22px;}
   .header-subtitle{font-size:20px;}
-  .ramadan-title{font-size:50px;}
-  .back-btn{font-size:18px; padding:12px 25px;}
+  .news-title{font-size:26px;}
+  .news-text{font-size:18px;}
 }
 </style>
 </head>
@@ -160,40 +163,36 @@ body{margin:0;background:#f2f2f2;}
 <body>
 
 <div class="header">
-
-  <!-- الشريط العلوي -->
   <div class="top-strip">
     <span>MISK ELKHITHEM</span>
   </div>
 
   <div class="header-left">
     <div class="header-title">أخبار مسك الختام</div>
-    <div class="header-subtitle">
-      الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة
-    </div>
+    <div class="header-subtitle">الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة</div>
     <div class="clock" id="clock">--:--:-- -- --/--/----</div>
   </div>
 
   <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
-
 </div>
 
 <div class="container">
 
-  <!-- جملة قفة رمضان باللون الذهبي -->
-  <div class="ramadan-title">قفة رمضان</div>
-
-  <!-- زر العودة -->
-  <a href="news1.html" class="back-btn">⬅ العودة للأخبار</a>
-
   <!-- أقسام الأخبار -->
   <div class="categories">
-    <div class="category">قفة رمضان</div>
-    <div class="category">تبرع</div>
-    <div class="category">نشاطات الجمعية</div>
-    <div class="category">أخبار وطنية</div>
-    <div class="category">مفقودات</div>
-    <div class="category">أعمال خيرية</div>
+    <div class="category" data-news="ramadan">قفة رمضان</div>
+    <div class="category" data-news="donate">تبرع</div>
+    <div class="category" data-news="activities">نشاطات الجمعية</div>
+    <div class="category" data-news="local">أخبار وطنية</div>
+    <div class="category" data-news="missing">مفقودات</div>
+    <div class="category" data-news="charity">أعمال خيرية</div>
+  </div>
+
+  <!-- منطقة عرض الأخبار -->
+  <div class="news-container" id="newsContainer">
+    <div class="news-title" id="newsTitle"></div>
+    <div class="news-date" id="newsDate"></div>
+    <div class="news-text" id="newsText"></div>
   </div>
 
 </div>
@@ -201,13 +200,46 @@ body{margin:0;background:#f2f2f2;}
 <div class="footer">© الجمعية الخيرية مسك الختام</div>
 
 <script>
+// تحديث الساعة
 function updateClock(){
-  const n=new Date();
-  document.getElementById('clock').textContent=
-  `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')} - ${String(n.getDate()).padStart(2,'0')}/${String(n.getMonth()+1).padStart(2,'0')}/${n.getFullYear()}`;
+  const n = new Date();
+  document.getElementById('clock').textContent =
+    `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')} - ${String(n.getDate()).padStart(2,'0')}/${String(n.getMonth()+1).padStart(2,'0')}/${n.getFullYear()}`;
 }
 setInterval(updateClock,1000);
 updateClock();
+
+// بيانات الأخبار لكل قسم
+const newsData = {
+  ramadan: {
+    title: "#نشاطات_الجمعية_خارج_الولاية.",
+    text: `تم اليوم نقل جثمان المغفور له بإذن الله:
+نسأل الله أن يتغمده برحمته ويجعل مثواه الجنة.`
+  },
+  donate: { title:"", text:"" },
+  activities: { title:"", text:"" },
+  local: { title:"", text:"" },
+  missing: { title:"", text:"" },
+  charity: { title:"", text:"" }
+};
+
+// عرض الخبر عند الضغط على القسم
+document.querySelectorAll('.category').forEach(cat=>{
+  cat.addEventListener('click', ()=>{
+    const key = cat.getAttribute('data-news');
+    const news = newsData[key];
+    if(news){
+      document.getElementById('newsTitle').textContent = news.title;
+      document.getElementById('newsText').textContent = news.text;
+
+      const now = new Date();
+      document.getElementById('newsDate').textContent =
+        `${String(now.getDate()).padStart(2,'0')}/${String(now.getMonth()+1).padStart(2,'0')}/${now.getFullYear()} - ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+      document.getElementById('newsContainer').style.display = 'block';
+    }
+  });
+});
 </script>
 
 </body>
