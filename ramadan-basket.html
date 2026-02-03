@@ -211,15 +211,15 @@ updateClock();
 
 // بيانات الأخبار لكل قسم
 const newsData = {
-  ramadan: {
-    title: "بسم الله الرحمن الرحيم",
-    text: "قل هو الله أحد الله الصمد لم يلد ولم يولد ولم يكن له كفؤا أحد"
+  ramadan:{
+    title:"بسم الله الرحمن الرحيم",
+    text:"قل هو الله أحد الله الصمد لم يلد ولم يولد ولم يكن له كفؤا أحد"
   },
-  donate: { title:"", text:"" },
-  activities: { title:"", text:"" },
-  local: { title:"", text:"" },
-  missing: { title:"", text:"" },
-  charity: { title:"", text:"" }
+  donate:{ title:"", text:"" },
+  activities:{ title:"", text:"" },
+  local:{ title:"", text:"" },
+  missing:{ title:"", text:"" },
+  charity:{ title:"", text:"" }
 };
 
 // عرض الخبر عند الضغط على القسم
@@ -227,16 +227,15 @@ document.querySelectorAll('.category').forEach(cat=>{
   cat.addEventListener('click', ()=>{
     const key = cat.getAttribute('data-news');
     const news = newsData[key];
-    if(news){
-      document.getElementById('newsTitle').textContent = news.title;
-      document.getElementById('newsText').textContent = news.text;
-
-      const now = new Date();
-      document.getElementById('newsDate').textContent =
-        `${String(now.getDate()).padStart(2,'0')}/${String(now.getMonth()+1).padStart(2,'0')}/${now.getFullYear()} - ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-
-      document.getElementById('newsContainer').style.display = 'block';
-    }
+    document.getElementById('newsTitle').textContent = news.title;
+    document.getElementById('newsText').textContent = news.text;
+    
+    // التاريخ والوقت للخبر
+    const now = new Date();
+    document.getElementById('newsDate').textContent = 
+      `${String(now.getDate()).padStart(2,'0')}/${String(now.getMonth()+1).padStart(2,'0')}/${now.getFullYear()} - ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+    
+    document.getElementById('newsContainer').style.display = 'block';
   });
 });
 </script>
