@@ -110,6 +110,37 @@ body{margin:0;background:#f2f2f2;}
   transform:translateY(-2px);
 }
 
+/* ===== منطقة عرض الأخبار ===== */
+.news-container{
+  margin-top:30px;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  text-align:right;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  display:none; /* يظهر عند الضغط على القسم */
+}
+
+.news-title{
+  font-size:32px;
+  font-weight:900; /* العنوان عريض */
+  margin-bottom:6px;
+}
+
+.news-date{
+  font-size:18px;
+  font-weight:700;
+  color:#555;
+  margin-bottom:12px;
+}
+
+.news-text{
+  font-size:20px; /* الخط متوسط */
+  font-weight:400;
+  line-height:1.6;
+  text-align:right;
+}
+
 /* ===== الفوتر ===== */
 .footer{
   background:#111;
@@ -124,6 +155,8 @@ body{margin:0;background:#f2f2f2;}
   .header-title{font-size:46px;}
   .top-strip span{font-size:22px;}
   .header-subtitle{font-size:20px;}
+  .news-title{font-size:26px;}
+  .news-text{font-size:18px;}
 }
 </style>
 </head>
@@ -131,33 +164,36 @@ body{margin:0;background:#f2f2f2;}
 <body>
 
 <div class="header">
-
   <div class="top-strip">
     <span>MISK ELKHITHEM</span>
   </div>
 
   <div class="header-left">
     <div class="header-title">أخبار مسك الختام</div>
-    <div class="header-subtitle">
-      الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة
-    </div>
+    <div class="header-subtitle">الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة</div>
     <div class="clock" id="clock">--:--:-- -- --/--/----</div>
   </div>
 
   <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
-
 </div>
 
 <div class="container">
 
   <!-- أقسام الأخبار -->
   <div class="categories">
-    <div class="category">قفة رمضان</div>
-    <div class="category">تبرع</div>
-    <div class="category">نشاطات الجمعية</div>
-    <div class="category">أخبار وطنية</div>
-    <div class="category">مفقودات</div>
-    <div class="category">أعمال خيرية</div>
+    <div class="category" data-news="ramadan">قفة رمضان</div>
+    <div class="category" data-news="donate">تبرع</div>
+    <div class="category" data-news="activities">نشاطات الجمعية</div>
+    <div class="category" data-news="local">أخبار وطنية</div>
+    <div class="category" data-news="missing">مفقودات</div>
+    <div class="category" data-news="charity">أعمال خيرية</div>
+  </div>
+
+  <!-- منطقة عرض الأخبار -->
+  <div class="news-container" id="newsContainer">
+    <div class="news-title" id="newsTitle"></div>
+    <div class="news-date" id="newsDate"></div>
+    <div class="news-text" id="newsText"></div>
   </div>
 
 </div>
@@ -167,12 +203,39 @@ body{margin:0;background:#f2f2f2;}
 <script>
 // تحديث الساعة
 function updateClock(){
-  const n=new Date();
-  document.getElementById('clock').textContent=
-  `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')} - ${String(n.getDate()).padStart(2,'0')}/${String(n.getMonth()+1).padStart(2,'0')}/${n.getFullYear()}`;
+  const n = new Date();
+  document.getElementById('clock').textContent =
+    `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')} - ${String(n.getDate()).padStart(2,'0')}/${String(n.getMonth()+1).padStart(2,'0')}/${n.getFullYear()}`;
 }
 setInterval(updateClock,1000);
 updateClock();
+
+// بيانات الأخبار لكل قسم (حالياً فارغ)
+const newsData = {
+  ramadan:{ title:"", text:"" },
+  donate:{ title:"", text:"" },
+  activities:{ title:"", text:"" },
+  local:{ title:"", text:"" },
+  missing:{ title:"", text:"" },
+  charity:{ title:"", text:"" }
+};
+
+// عرض الخبر عند الضغط على القسم
+document.querySelectorAll('.category').forEach(cat=>{
+  cat.addEventListener('click', ()=>{
+    const key = cat.getAttribute('data-news');
+    const news = newsData[key];
+    document.getElementById('newsTitle').textContent = news.title;
+    document.getElementById('newsText').textContent = news.text;
+    
+    // التاريخ والوقت للخبر
+    const now = new Date();
+    document.getElementById('newsDate').textContent = 
+      `${String(now.getDate()).padStart(2,'0')}/${String(now.getMonth()+1).padStart(2,'0')}/${now.getFullYear()} - ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+    
+    document.getElementById('newsContainer').style.display = 'block';
+  });
+});
 </script>
 
 </body>
