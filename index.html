@@ -5,16 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مواقيت الصلاة - ميلة</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',Tahoma;}
 
+/* ===== الصفحة الرئيسية ===== */
 body{
-  height:110vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
   background:no-repeat center center fixed;
   background-size:cover;
   transition: background-image 1.5s ease-in-out;
@@ -28,24 +25,13 @@ body{
   padding:15px;
   text-align:center;
   color:white;
-  transform: scale(0.9);
-  transform-origin: center top;
+  margin:auto;
 }
 
+/* اللوغو والعناوين */
 .logo{width:80px;margin-bottom:6px;}
-
-/* العناوين */
-.title{
-  font-size:20px;
-  font-weight:700;
-  text-shadow:0 0 10px gold;
-  margin-bottom:2px;
-}
-.date{
-  margin:2px 0;
-  font-size:14px;
-  font-weight:700;
-}
+.title{font-size:20px;font-weight:700;text-shadow:0 0 10px gold;margin-bottom:2px;}
+.date{margin:2px 0;font-size:14px;font-weight:700;}
 
 /* جدول المواقيت */
 .table{margin-top:10px}
@@ -81,43 +67,140 @@ body{
   gap:8px;
 }
 #nextPrayerClock{font-size:30px;}
-#nextPrayerClockContainer img{
-  width:35px;
-  height:35px;
-}
+#nextPrayerClockContainer img{width:35px;height:35px;}
 
-/* زر الأخبار (نص فقط يومض) */
+/* زر الأخبار */
 .news-button{
   display:block;
   width:90%;
   max-width:320px;
   margin:15px auto;
   padding:14px 0;
-
   background:transparent;
-  box-shadow:none;
-
   color:white;
   font-weight:800;
   font-size:18px;
   text-align:center;
   text-decoration:none;
-
   animation:blink 1s infinite;
 }
-
 @keyframes blink{
   0%,100%{opacity:1;}
   50%{opacity:0.3;}
 }
 
-.footer{
-  margin-top:10px;
-  font-size:14px;
-  display:flex;
-  justify-content:center;
-  gap:6px;
+/* ===== الأخبار ===== */
+.header, .categories, .news-container, .news-title, .news-date, .news-text, .footer{
+  font-family:'Cairo',Tahoma;
 }
+.header{
+  background:#111;
+  color:white;
+  padding:0 30px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.top-strip{
+  width:100%;
+  background:#000;
+  padding:8px 0;
+  text-align:center;
+}
+.top-strip span{
+  font-family:'Playfair Display', serif;
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:4px;
+  color:#ffffff;
+}
+.header-left{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  margin-top:15px;
+}
+.header-title{
+  font-size:70px;
+  font-weight:900;
+}
+.header-subtitle{
+  font-size:28px;
+  font-weight:700;
+  margin-top:6px;
+  color:#ffd700;
+}
+.clock{
+  font-size:28px;
+  font-weight:700;
+  color:white;
+  margin-top:10px;
+  text-align:right;
+}
+.header-logo{
+  width:180px;
+  height:auto;
+  margin-top:15px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+}
+.categories{
+  background:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:10px;
+  margin-top:20px;
+}
+.category{
+  flex:1;
+  min-width:150px;
+  text-align:center;
+  padding:16px 10px;
+  color:#000;
+  font-size:26px;
+  font-weight:800;
+  text-decoration:none;
+  background:#fff;
+  border:2px solid #333;
+  border-radius:14px;
+  transition:0.3s;
+  cursor:pointer;
+}
+.category:hover{
+  background:#f0f0f0;
+  color:#ffd700;
+  transform:translateY(-2px);
+}
+.news-container{
+  margin-top:30px;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  text-align:right;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  display:none;
+}
+.news-title{font-size:32px;font-weight:900;margin-bottom:6px;}
+.news-date{font-size:18px;font-weight:700;color:#555;margin-bottom:12px;}
+.news-text{font-size:20px;font-weight:400;line-height:1.6;text-align:right;}
+.footer{
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:20px;
+  font-size:18px;
+}
+@media(max-width:768px){
+  .header-title{font-size:46px;}
+  .top-strip span{font-size:22px;}
+  .header-subtitle{font-size:20px;}
+  .news-title{font-size:26px;}
+  .news-text{font-size:18px;}
+}
+
+/* ===== الصفحة الرئيسية إضافات ===== */
+.overlay{margin-bottom:30px;}
 </style>
 </head>
 
@@ -128,31 +211,81 @@ body{
   <img src="logo.png" class="logo" alt="لوغو الجمعية">
 
   <!-- زر الأخبار -->
-  <a href="news1.html" class="news-button" target="_blank">
-    إضغط أخبار مسك الختام
-  </a>
+  <div class="header">
+    <div class="top-strip"><span>MISK ELKHITHEM</span></div>
+    <div class="header-left">
+      <div class="header-title">أخبار مسك الختام</div>
+      <div class="header-subtitle">الجمعية الخيرية مسك الختام - القرارم قوقة ولاية ميلة</div>
+      <div class="clock" id="clock">--:--:-- -- --/--/----</div>
+    </div>
+    <img src="logo1.png" class="header-logo" alt="لوغو الجمعية">
+  </div>
 
+  <!-- أقسام الأخبار -->
+  <div class="categories">
+    <div class="category" data-news="ramadan">قفة رمضان</div>
+    <div class="category" data-news="donate">تبرع</div>
+    <div class="category" data-news="activities">نشاطات الجمعية</div>
+    <div class="category" data-news="local">أخبار وطنية</div>
+    <div class="category" data-news="missing">مفقودات</div>
+    <div class="category" data-news="charity">أعمال خيرية</div>
+  </div>
+
+  <!-- منطقة عرض الأخبار -->
+  <div class="news-container" id="newsContainer">
+    <div class="news-title" id="newsTitle"></div>
+    <div class="news-date" id="newsDate"></div>
+    <div class="news-text" id="newsText"></div>
+  </div>
+
+  <!-- لوحة الصلاة -->
   <div class="title">(ٱلْجَمْعِيَّةُ ٱلْخَيْرِيَّةُ مِسْكُ ٱلْخِتَامِ ٱلْقَرَارِمِ قُوقَة)</div>
-
   <div class="date" id="gregorian">--</div>
   <div class="date" id="hijri">--</div>
-
   <div id="countdownText">-- بعد:</div>
   <div id="nextPrayerClockContainer">
     <img src="logo.webp" alt="جرس">
     <div id="nextPrayerClock">--:--:--</div>
   </div>
-
   <div class="table" id="prayerTable"></div>
 
-  <div class="footer">
-    <span>misk elkhithem ©</span>
-  </div>
-
+  <div class="footer">misk elkhithem ©</div>
 </div>
 
 <script>
-// ===== بيانات مواقيت الصلاة =====
+// ===== الساعة =====
+function updateClock(){
+  const n = new Date();
+  document.getElementById('clock').textContent =
+    `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}:${String(n.getSeconds()).padStart(2,'0')} - ${String(n.getDate()).padStart(2,'0')}/${String(n.getMonth()+1).padStart(2,'0')}/${n.getFullYear()}`;
+}
+setInterval(updateClock,1000);
+updateClock();
+
+// ===== بيانات الأخبار =====
+const newsData = {
+  ramadan:{ title:"بسم الله الرحمن الرحيم", text:"قل هو الله أحد الله الصمد لم يلد ولم يولد ولم يكن له كفؤا أحد" },
+  donate:{ title:"تبرع للجمعية", text:"يمكنكم التبرع لدعم أنشطة الجمعية عبر الرابط المخصص." },
+  activities:{ title:"نشاطات الجمعية", text:"هنا تجدون تفاصيل نشاطات الجمعية المختلفة." },
+  local:{ title:"أخبار وطنية", text:"أحدث الأخبار الوطنية من مختلف ولايات الوطن." },
+  missing:{ title:"مفقودات", text:"قائمة المفقودات والإعلانات المهمة هنا." },
+  charity:{ title:"أعمال خيرية", text:"تقرير عن الأعمال الخيرية التي قامت بها الجمعية." }
+};
+
+document.querySelectorAll('.category').forEach(cat=>{
+  cat.addEventListener('click', ()=>{
+    const key = cat.getAttribute('data-news');
+    const news = newsData[key];
+    document.getElementById('newsTitle').textContent = news.title;
+    document.getElementById('newsText').textContent = news.text;
+    const now = new Date();
+    document.getElementById('newsDate').textContent =
+      `${String(now.getDate()).padStart(2,'0')}/${String(now.getMonth()+1).padStart(2,'0')}/${now.getFullYear()} - ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+    document.getElementById('newsContainer').style.display = 'block';
+  });
+});
+
+// ===== مواقيت الصلاة =====
 const TABLE_START_DATE = new Date("2026-02-01T00:00:00");
 const prayerSchedule = [
   ["06:09","05:59","12:49","15:40","18:04","19:25"],
@@ -176,7 +309,6 @@ const prayerSchedule = [
 const prayerNames=["الفجر","الإمساك","الظهر","العصر","المغرب","العشاء"];
 let rows=[], todayTimes=[];
 
-// ===== التاريخ الهجري =====
 const HIJRI_START_DATE=new Date("2026-02-01T00:00:00");
 const hijriMonths=["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الآخرة","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة"];
 
@@ -230,7 +362,7 @@ function updateCountdown(){
     const diffDays = Math.floor((tomorrow-TABLE_START_DATE)/86400000);
     const tableIndex = Math.min(Math.max(diffDays,0),prayerSchedule.length-1);
     const [h,m] = prayerSchedule[tableIndex][0].split(":").map(Number);
-    target = new Date(); target.setDate(target.getDate()+1); target.setHours(h,m,0,0);
+    target = new Date(); target.setDate(tomorrow.getDate()); target.setHours(h,m,0,0);
     index=0;
   }
 
@@ -259,6 +391,7 @@ updateBackground();
 setInterval(updateCountdown,1000);
 setInterval(updateDateAndTimes,60000);
 setInterval(updateBackground,60000);
+
 </script>
 
 </body>
