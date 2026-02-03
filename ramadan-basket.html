@@ -137,28 +137,6 @@ body{margin:0;background:#f2f2f2;}
   transform:translateY(-2px);
 }
 
-/* ===== منطقة الخبر ===== */
-#newsArea{
-  margin-top:20px;
-  padding:20px;
-  background:#fff;
-  border-radius:14px;
-  text-align:right;
-  display:none; /* مخفي افتراضيًا */
-}
-
-#newsArea h2{
-  font-weight:900;
-  font-size:28px;
-  margin-bottom:10px;
-}
-
-#newsArea .news-datetime{
-  font-size:18px;
-  color:#555;
-  margin-bottom:15px;
-}
-
 /* ===== الفوتر ===== */
 .footer{
   background:#111;
@@ -175,7 +153,6 @@ body{margin:0;background:#f2f2f2;}
   .header-subtitle{font-size:20px;}
   .ramadan-title{font-size:50px;}
   .back-btn{font-size:18px; padding:12px 25px;}
-  #newsArea h2{font-size:24px;}
 }
 </style>
 </head>
@@ -211,21 +188,12 @@ body{margin:0;background:#f2f2f2;}
 
   <!-- أقسام الأخبار -->
   <div class="categories">
-    <div class="category" onclick="showNews('ramadan')">قفة رمضان</div>
-    <div class="category" onclick="showNews('donate')">تبرع</div>
-    <div class="category" onclick="showNews('activities')">نشاطات الجمعية</div>
-    <div class="category" onclick="showNews('local')">أخبار وطنية</div>
-    <div class="category" onclick="showNews('missing')">مفقودات</div>
-    <div class="category" onclick="showNews('charity')">أعمال خيرية</div>
-  </div>
-
-  <!-- منطقة عرض الخبر -->
-  <div id="newsArea">
-    <h2 id="newsTitle"></h2>
-    <div class="news-datetime">
-      التاريخ: <span id="newsDate"></span> - الساعة: <span id="newsTime"></span>
-    </div>
-    <div id="newsContent"></div>
+    <div class="category">قفة رمضان</div>
+    <div class="category">تبرع</div>
+    <div class="category">نشاطات الجمعية</div>
+    <div class="category">أخبار وطنية</div>
+    <div class="category">مفقودات</div>
+    <div class="category">أعمال خيرية</div>
   </div>
 
 </div>
@@ -240,33 +208,6 @@ function updateClock(){
 }
 setInterval(updateClock,1000);
 updateClock();
-
-// ===== وظيفة عرض الخبر =====
-const newsData = {
-  ramadan: {
-    title:حكمة اليوم
-    content: العلم نور والجهل ظلام
-  }
-  // يمكن إضافة أخبار أخرى بنفس التنسيق
-};
-
-function showNews(key){
-  const newsArea = document.getElementById('newsArea');
-  document.getElementById('newsTitle').textContent = newsData[key].title;
-  document.getElementById('newsContent').textContent = newsData[key].content;
-  newsArea.style.display = 'block';
-}
-
-// ===== تحديث تاريخ ووقت الخبر =====
-function updateNewsDateTime() {
-  const now = new Date();
-  const dateStr = `${String(now.getDate()).padStart(2,'0')}/${String(now.getMonth()+1).padStart(2,'0')}/${now.getFullYear()}`;
-  const timeStr = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
-  document.getElementById('newsDate').textContent = dateStr;
-  document.getElementById('newsTime').textContent = timeStr;
-}
-setInterval(updateNewsDateTime, 1000);
-updateNewsDateTime();
 </script>
 
 </body>
