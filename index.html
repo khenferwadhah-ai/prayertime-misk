@@ -45,7 +45,6 @@ body{
   font-weight:700;
 }
 
-/* جدول المواقيت */
 .table{margin-top:10px}
 .row{
   display:flex;
@@ -60,7 +59,7 @@ body{
   border-radius:12px;
 }
 
-/* العد التنازلي */
+/* ===== العد التنازلي ===== */
 #countdownText{
   font-size:24px;
   font-weight:700;
@@ -84,59 +83,47 @@ body{
   height:35px;
 }
 
-/* زر الأخبار */
+/* ===== زر الأخبار ===== */
 .news-button{
   display:block;
-  width:90%;
-  max-width:300px;
+  width:80%;
+  max-width:250px;
   margin:12px auto 20px auto;
-  padding:15px 0;
-  background:gold;
-  color:black;
+  padding:10px 0;
+  background:transparent;
+  color:red;
   font-weight:800;
-  font-size:18px;
+  font-size:16px;
   text-align:center;
-  border-radius:14px;
+  border:2px solid white;
+  border-radius:12px;
   text-decoration:none;
-  box-shadow:0 6px 15px rgba(0,0,0,0.3);
-  transition:all 0.3s ease;
   position:relative;
   overflow:hidden;
-}
-
-.news-button::after{
-  content:'';
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:rgba(255,255,255,0.3);
-  transform:skewX(-20deg);
-  transition:all 0.5s ease;
-}
-
-.news-button:hover::after{
-  left:200%;
+  animation:blink 1s infinite;
+  transition:transform 0.3s, box-shadow 0.3s;
 }
 
 .news-button:hover,
 .news-button:active{
-  background:#ffc107;
-  transform:translateY(-3px) scale(1.02);
-  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  transform:scale(1.05);
+  box-shadow:0 4px 12px rgba(255,0,0,0.6);
 }
 
-/* استجابة الموبايل */
+@keyframes blink{
+  0%, 49%, 100%{color:red;}
+  50%{color:#ff4d4d;}
+}
+
 @media screen and (max-width:480px){
   .news-button{
-    font-size:20px;
-    padding:18px 0;
-    border-radius:16px;
+    font-size:18px;
+    padding:12px 0;
+    border-radius:14px;
   }
 }
 
-/* شريط الأخبار السابق */
+/* ===== شريط الأخبار مع روابط ===== */
 #newsTicker{
   width:100%;
   overflow:hidden;
@@ -205,7 +192,7 @@ body{
 </div>
 
 <script>
-// بيانات مواقيت الصلاة
+// ===== بيانات مواقيت الصلاة =====
 const TABLE_START_DATE = new Date("2026-02-01T00:00:00");
 const prayerSchedule = [
   ["06:09","05:59","12:49","15:40","18:04","19:25"],
@@ -229,7 +216,7 @@ const prayerSchedule = [
 const prayerNames=["الفجر","الإمساك","الظهر","العصر","المغرب","العشاء"];
 let rows=[], todayTimes=[];
 
-// التاريخ الهجري
+// ===== التاريخ الهجري =====
 const HIJRI_START_DATE=new Date("2026-02-01T00:00:00");
 const hijriMonths=["محرم","صفر","ربيع الأول","ربيع الثاني","جمادى الأولى","جمادى الآخرة","رجب","شعبان","رمضان","شوال","ذو القعدة","ذو الحجة"];
 
@@ -241,7 +228,7 @@ function updateHijri(){
   document.getElementById("hijri").innerText=`${d} ${hijriMonths[m]} ${y} هـ`;
 }
 
-// بناء جدول المواقيت
+// ===== بناء جدول المواقيت =====
 function buildTable(){
   const c=document.getElementById("prayerTable");
   c.innerHTML="";
@@ -255,7 +242,7 @@ function buildTable(){
   });
 }
 
-// تحديث التاريخ والوقت
+// ===== تحديث التاريخ والوقت =====
 function updateDateAndTimes(){
   const now=new Date();
   document.getElementById("gregorian").innerText=
@@ -267,7 +254,7 @@ function updateDateAndTimes(){
   todayTimes.forEach((t,i)=>document.getElementById("t"+i).innerText=t);
 }
 
-// العد التنازلي للصلاة القادمة
+// ===== العد التنازلي للصلاة القادمة =====
 function updateCountdown(){
   if(!todayTimes.length) return;
   const now = new Date();
@@ -302,18 +289,18 @@ function updateCountdown(){
     `${String(Math.floor(diff%60000/1000)).padStart(2,"0")}`;
 }
 
-// تبديل الخلفية نهار / ليل
+// ===== تبديل الخلفية نهار / ليل =====
 function updateBackground(){
   const now = new Date();
   const hour = now.getHours();
-  if(hour >= 19 || hour < 7){
+  if(hour >= 19 || hour < 7){ // 7 مساءً → 7 صباحًا
     document.body.style.backgroundImage = 'url("background1.png")';
-  } else {
+  } else { // 7 صباحًا → 7 مساءً
     document.body.style.backgroundImage = 'url("background3.png")';
   }
 }
 
-// التشغيل
+// ===== التشغيل =====
 buildTable();
 updateDateAndTimes();
 updateCountdown();
@@ -322,17 +309,6 @@ updateBackground();
 setInterval(updateCountdown,1000);
 setInterval(updateDateAndTimes,60000);
 setInterval(updateBackground,60000);
-
-// تحديث الساعة
-function updateClock(){
-  const now = new Date();
-  const hours = String(now.getHours()).padStart(2,'0');
-  const minutes = String(now.getMinutes()).padStart(2,'0');
-  const seconds = String(now.getSeconds()).padStart(2,'0');
-  document.getElementById('nextPrayerClock').textContent = `${hours}:${minutes}:${seconds}`;
-}
-setInterval(updateClock,1000);
-updateClock();
 </script>
 
 </body>
